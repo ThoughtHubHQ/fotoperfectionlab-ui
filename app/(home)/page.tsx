@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import CraftingCredit from "@thoughthub/hq";
 import Image from "next/image";
 import Link from "next/link";
@@ -256,12 +256,14 @@ export default function HomePage() {
               </ul>
             </div>
           </div>
-          <div className="flex items-center justify-between mt-20">
+          <div className="flex flex-col lg:flex-row items-center justify-between mt-20 gap-10">
             <div className="text-muted text-sm text-zinc-600 dark:text-zinc-400">
               © {new Date().getFullYear()} FotoPerfectionLab. All rights
               reserved.
             </div>
-            <CraftingCredit/>
+            <div>
+              <CraftingCredit />
+            </div>
           </div>
         </div>
       </footer>
