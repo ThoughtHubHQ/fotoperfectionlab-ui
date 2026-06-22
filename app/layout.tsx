@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { inter } from "@/lib/font";
 import { brandAssets } from "@/lib/asset";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL(brandAssets.mainUrl),
@@ -36,7 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`scroll-smooth`}>
       <body className={`${inter.className}`}>
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen">
+          <Navbar/>
+          {children}</main>
       </body>
     </html>
   );

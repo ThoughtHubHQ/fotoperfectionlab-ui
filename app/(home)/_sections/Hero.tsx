@@ -12,6 +12,7 @@ import {
   LuSquare,
 } from "react-icons/lu";
 import { FaArrowRight, FaStar } from "react-icons/fa";
+import Link from "next/link";
 
 const heroSlides = [
   {
@@ -67,8 +68,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden py-16 lg:py-0 px-4 md:px-8 lg:px-16 2xl:px-0 bg-[#EEF2FF]">
-      <div className="max-w-360 w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+    <section
+      className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden
+     py-16 lg:py-0 px-4 md:px-8 lg:px-16 2xl:px-0"
+    >
+      <div className="max-w-360 w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 mt-10 lg:mt-30">
         {/* Left Content */}
         <div className="w-full lg:w-1/2 flex flex-col items-start text-left z-10">
           {/* Badge */}
@@ -79,7 +83,7 @@ export default function Hero() {
             10+ YEARS OF EXPERIENCE
           </div>
 
-          <h1 className="mb-6 text-[#111827] font-extrabold text-[36px] leading-11 md:text-[45px] md:leading-18">
+          <h1 className="mb-6 text-[#111827] font-extrabold text-[36px] xl:leading-16 lg:text-[35px] xl:text-[45px]">
             Perfect Image <br />
             Powerfull Editing <br />
             With{" "}
@@ -100,11 +104,11 @@ export default function Hero() {
 
               <div className="absolute -bottom-1 md:-bottom-2 left-0 w-full pointer-events-none">
                 <Image
-                  src="/hero/underline.png"
+                  src="/hero/underline.svg"
                   alt="underline highlight"
-                  width={600}
+                  width={500}
                   height={20}
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-cover"
                   priority
                 />
               </div>
@@ -118,11 +122,14 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-10">
-            <button className="group text-white px-8 py-4 font-semibold flex items-center gap-3 text-lg transition-transform hover:scale-105 rounded-[24px] bg-[#1D61F2] shadow-[0_25px_50px_-12px_#93C5FD]">
-              Get My Quotation
-              <span className="bg-white/20 p-1.5 rounded-full group-hover:translate-x-1 transition-transform duration-300">
-                <FaArrowRight className="w-3 h-3" />
-              </span>
+            <button className="group text-white px-8 py-4 font-semibold flex items-center gap-3 text-lg transition-transform hover:scale-105 rounded-3xl bg-[#1D61F2] shadow-[0_25px_50px_-12px_#93C5FD] cursor-pointer">
+              <Link href="/contact" className="flex items-center gap-3" >
+
+                Get My Quotation
+                <span className="bg-white/20 p-1.5 rounded-full group-hover:translate-x-1 transition-transform duration-300">
+                  <FaArrowRight className="w-3 h-3" />
+                </span>
+              </Link>
             </button>
 
             <div className="flex flex-col items-start gap-1">
@@ -147,7 +154,7 @@ export default function Hero() {
             <motion.div
               animate={{ rotate: -activeIndex * 72 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="absolute inset-0 rounded-full border-[1.5px] border-dashed border-[#BFDBFE]"
+              className="absolute inset-0 rounded-full border-[1.5px] border-dashed border-[#a3bef8]"
             >
               {heroSlides.map((item, i) => {
                 const nodeAngle = i * 72;

@@ -1,11 +1,11 @@
-import Navbar from "@/components/Navbar";
 import Hero from "./(home)/_sections/Hero";
+import CoreAdvantages from "./(home)/_sections/CoreAdvantage";
 
 export default function Home() {
   return (
-    <div className="bg-[linear-gradient(0deg,#F4F7FC_0%,#F4F7FC_100%)]">
-      <Navbar />
+    <div className="bg-[#EEF2FF] bg-[url('/hero/heroBlur.png')] bg-no-repeat bg-right bg-cover">
       <Hero />
+      <CoreAdvantages />
     </div>
   );
 }
