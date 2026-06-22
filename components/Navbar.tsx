@@ -14,9 +14,9 @@ export default function Navbar() {
         <Image
           src="/logo/logo.png"
           alt="Logo"
-          width={180}
-          height={48}
-          className="h-10 md:h-12 w-auto object-contain"
+          width={200}
+          height={50}
+          className="h-10 md:h-15 w-auto object-contain"
           priority
         />
       </div>
