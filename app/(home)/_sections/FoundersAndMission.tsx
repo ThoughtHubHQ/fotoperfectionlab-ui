@@ -61,10 +61,7 @@ const missionVisionData = [
 export default function FoundersAndMission() {
   return (
     <section className="w-full py-16 lg:py-20 bg-transparent">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 xl:px-16 2xl:px-0 flex flex-col gap-12 lg:gap-16">
-        {/* =========================================
-            ROW 1: FOUNDERS
-        ========================================= */}
+      <div className="max-w-360 mx-auto px-4 md:px-8 xl:px-16 2xl:px-0 flex flex-col gap-12 lg:gap-16">
         <div className="w-full flex flex-col">
           {/* Header */}
           <div className="flex items-center gap-3 mb-2">
@@ -163,14 +160,14 @@ export default function FoundersAndMission() {
         </div>
 
         {/* LET'S WORK TOGETHER */}
-        <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-8 md:p-10 rounded-[32px] border border-[rgba(37,99,235,0.70)] bg-[rgba(37,99,235,0.08)] shadow-[inset_0_4px_4px_0_rgba(255,255,255,0.50)] backdrop-blur-[10px]">
+        <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-8 md:p-10 rounded-4xl border border-[rgba(37,99,235,0.70)] bg-[rgba(37,99,235,0.08)] shadow-[inset_0_4px_4px_0_rgba(255,255,255,0.50)] backdrop-blur-[10px]">
           <div className="flex gap-5 flex-1">
             <div className="shrink-0 w-14 h-14 rounded-full bg-[linear-gradient(135deg,#3B82F6_0%,#1D4ED8_100%)] shadow-[0_8px_24px_0_rgba(41,98,255,0.30)] flex items-center justify-center text-white mt-1">
               <FiBriefcase className="w-6 h-6" strokeWidth={2.5} />
             </div>
 
             <div className="flex flex-col">
-              <h3 className="text-[#111827] text-[22px] md:text-[24px] font-[800] tracking-tight mb-3">
+              <h3 className="text-[#111827] text-[22px] md:text-[24px] font-extrabold tracking-tight mb-3">
                 Let&apos;s Work Together
               </h3>
               <p className="text-[#4B5563] text-[14px] leading-relaxed font-medium mb-4 max-w-3xl">

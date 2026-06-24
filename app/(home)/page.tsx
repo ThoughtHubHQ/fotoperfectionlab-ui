@@ -6,6 +6,7 @@ import FoundersAndMission from "./_sections/FoundersAndMission";
 import MeetTheTeam from "./_sections/MeetTheTeams";
 import Contact from "../contact/Contact";
 import FAQ from "./_sections/FAQ";
+import HomeServices from "./_sections/HomeServices";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <WhyChooseUs />
       <FoundersAndMission/>
       <MeetTheTeam/>
+      <HomeServices/>
       <FAQ />
       <Contact />
     </div>

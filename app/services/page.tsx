@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Services from "./Services";
 
 export const metadata: Metadata = {
   title: "Services - Foto Perfection Lab",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div>
-      <h1>Services</h1>
+     <Services/>
     </div>
   );
 }
