@@ -1,7 +1,29 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "standalone",
+
+  images: {
+    dangerouslyAllowLocalIP: true,
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "5000",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pravatar.cc",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
