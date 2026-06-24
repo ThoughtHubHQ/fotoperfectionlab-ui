@@ -328,7 +328,7 @@ export default function Services() {
 
       {/* Services List Section */}
       <section className="w-full pb-16 lg:pb-24">
-        <div className="max-w-[1200px] mx-auto px-4 md:px-8 xl:px-0 flex flex-col gap-12 md:gap-16">
+        <div className="max-w-360 mx-auto px-4 md:px-8 xl:px-10 2xl:px-0 flex flex-col gap-12 md:gap-16">
           {servicesData.map((service, index) => {
             const isEven = index % 2 === 0;
 
@@ -387,7 +387,7 @@ export default function Services() {
 
       {/* Bottom CTA Banner */}
       <section className="w-full py-16 px-4 md:px-8">
-        <div className="max-w-[1200px] mx-auto rounded-[32px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.05)] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        <div className="max-w-300 mx-auto rounded-[32px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.05)] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div className="flex flex-col max-w-[600px]">
             <h2 className="text-[#111827] text-[28px] md:text-[36px] font-[800] tracking-tight mb-4">
               Ready to transform your images?
