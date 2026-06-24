@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Pricing from "./Pricing";
 
 export const metadata: Metadata = {
   title: "Pricing - Foto Perfection Lab",
@@ -7,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <div>
-      <h1>Pricing</h1>
+    <div className="py-10">
+      <Pricing />
     </div>
   );
 }
