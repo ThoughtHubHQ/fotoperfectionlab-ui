@@ -4,6 +4,8 @@ import AboutCard from "./_sections/AboutCard";
 import WhyChooseUs from "./_sections/WhyChooseUs";
 import FoundersAndMission from "./_sections/FoundersAndMission";
 import MeetTheTeam from "./_sections/MeetTheTeams";
+import Contact from "../contact/Contact";
+import FAQ from "./_sections/FAQ";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <WhyChooseUs />
       <FoundersAndMission/>
       <MeetTheTeam/>
+      <FAQ />
+      <Contact />
     </div>
   );
 }

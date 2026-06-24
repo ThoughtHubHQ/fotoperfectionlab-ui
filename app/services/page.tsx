@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="bg-[#EEF2FF] bg-[url('/hero/heroBlur.png')] bg-no-repeat bg-right bg-cover">
+    <div>
       <h1>Services</h1>
     </div>
   );

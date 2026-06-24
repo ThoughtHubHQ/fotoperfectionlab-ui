@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   return (
-    <div className="bg-[#EEF2FF] bg-[url('/hero/heroBlur.png')] bg-no-repeat bg-right bg-cover">
+    <div>
       <h1>Portfolio</h1>
     </div>
   );

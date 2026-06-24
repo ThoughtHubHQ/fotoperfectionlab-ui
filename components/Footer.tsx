@@ -4,13 +4,14 @@ import Link from "next/link";
 import { FiLinkedin, FiTwitter, FiInstagram, FiMail } from "react-icons/fi";
 import CraftingCredit from "./CraftingCredit";
 
+const year = new Date().getFullYear();
 // Mock Data
 const globalData = {
   logo: "/logo/logo.png",
   companyName: "Foto Perfection Lab",
   description:
     "Professional photo editing and retouching services for e-commerce brands, photographers, and studios worldwide.",
-  copyright: "© 2026 Foto Perfection Lab. All rights reserved.",
+  copyright: `© ${year} Foto Perfection Lab. All rights reserved.`,
 };
 
 const socialLinks = [
@@ -53,16 +54,11 @@ const footerLinks = [
   },
 ];
 
-const bottomLinks = [
-  { label: "Privacy Policy", url: "/privacy" },
-  { label: "Terms of Service", url: "/terms" },
-];
-
 export default function Footer() {
   return (
     <footer className="w-full px-4 md:px-8 xl:px-16 2xl:px-0 pt-16 md:pt-24 bg-transparent">
       {/* Container */}
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-8 rounded-t-[36px] border-t border-[rgba(30,86,227,0.90)] bg-[rgba(30,86,227,0.10)] shadow-[0_6px_10px_0_rgba(37,99,235,0.25)]">
+      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-8 rounded-t-[36px] border-t border-[rgba(30,86,227,0.90)] bg-[rgba(30,86,227,0.10)] shadow-[0_6px_10px_0_rgba(37,99,235,0.25)]">
         {/* Top */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           <div className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-8">
@@ -124,7 +120,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
-          <p className="text-[#9CA3AF] text-[13px] md:text-[14px] font-medium text-center md:text-left">
+          <p className="text-gray-500 text-[13px] md:text-[14px] font-medium text-center md:text-left">
             {globalData.copyright}
           </p>
           <div className="flex items-center gap-6 mt-5 md:mt-0">

@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Contact from "./Contact";
-import CraftingCredit from "@/components/CraftingCredit";
 
 export const metadata: Metadata = {
   title: "Contact Us - Foto Perfection Lab",
@@ -11,7 +10,6 @@ export default function ContactPage() {
   return (
     <div className="py-10">
       <Contact />
-      <CraftingCredit/>
     </div>
   );
 }
