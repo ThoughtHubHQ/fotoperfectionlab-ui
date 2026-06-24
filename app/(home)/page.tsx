@@ -16,7 +16,7 @@ export default function Home() {
       <AboutCard />
       <WhyChooseUs />
       <FoundersAndMission/>
-      <MeetTheTeam/>
+      {/* <MeetTheTeam/> */}
       <HomeServices/>
       <FAQ />
       <Contact />
