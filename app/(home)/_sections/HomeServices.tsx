@@ -187,7 +187,7 @@ export default function HomeServices() {
 
   return (
     <section className="w-full py-16 lg:py-24 bg-transparent">
-      <div className="max-w-300 mx-auto px-4 md:px-8 xl:px-0 flex flex-col items-center">
+      <div className="max-w-360 mx-auto px-4 md:px-8 lg:px-10 2xl:px-0 flex flex-col items-center">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16 md:mb-20">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[rgba(37,99,235,0.15)] bg-[rgba(37,99,235,0.05)] text-[#2563EB] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-6">
