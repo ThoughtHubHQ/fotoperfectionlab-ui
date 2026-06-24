@@ -1,4 +1,8 @@
 import { Metadata } from "next";
+import MeetTheTeam from "../(home)/_sections/MeetTheTeams";
+import FoundersAndMission from "../(home)/_sections/FoundersAndMission";
+import WhyChooseUs from "../(home)/_sections/WhyChooseUs";
+import AboutCard from "../(home)/_sections/AboutCard";
 
 export const metadata: Metadata = {
   title: "About Us - Foto Perfection Lab",
@@ -7,8 +11,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div>
-      <h1>About Us</h1>
+    <div className="pt-15 lg:pt-25">
+      <AboutCard />
+      <WhyChooseUs />
+      <FoundersAndMission />
+      <MeetTheTeam />
     </div>
   );
 }
