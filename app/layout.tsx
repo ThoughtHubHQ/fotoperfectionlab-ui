@@ -3,6 +3,7 @@ import "./globals.css";
 import { inter } from "@/lib/font";
 import { brandAssets } from "@/lib/asset";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL(brandAssets.mainUrl),
@@ -37,9 +38,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`scroll-smooth`}>
       <body className={`${inter.className}`}>
-        <main className="min-h-screen">
+        <main className="min-h-screen bg-[#EEF2FF] bg-[url('/hero/heroBlur.png')] bg-no-repeat bg-right bg-cover">
           <Navbar/>
-          {children}</main>
+          {children}
+          <Footer/>
+          </main>
       </body>
     </html>
   );

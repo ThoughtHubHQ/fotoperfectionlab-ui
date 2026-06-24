@@ -8,7 +8,7 @@ import Link from "next/link";
 // Mock data array for navigation items
 const navItems = [
   { id: 1, label: "About", href: "/about" },
-  { id: 2, label: "Service", href: "/service" },
+  { id: 2, label: "Services", href: "/services" },
   { id: 3, label: "Pricing", href: "/pricing" },
   { id: 4, label: "Portfolio", href: "/portfolio" },
 ];
