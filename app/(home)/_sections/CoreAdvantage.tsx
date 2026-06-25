@@ -60,7 +60,7 @@ export default function CoreAdvantages() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 xl:gap-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 xl:gap-12">
           {coreAdvantages.map((advantage) => {
             const Icon = advantage.icon;
             

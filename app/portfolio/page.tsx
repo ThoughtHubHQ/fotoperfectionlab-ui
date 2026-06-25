@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Portfolio from "./Portfolio";
 
 export const metadata: Metadata = {
   title: "Portfolio - Foto Perfection Lab",
@@ -7,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   return (
-    <div>
-      <h1>Portfolio</h1>
+    <div className="pt-15">
+      <Portfolio />
     </div>
   );
 }

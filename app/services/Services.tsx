@@ -3,13 +3,13 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FiCheck, FiArrowRight, FiZap } from "react-icons/fi";
+import { FiCheck, FiZap } from "react-icons/fi";
 
 // Mock Data
 const servicesData = [
   {
     id: 1,
-    title: "Clipping Path Service",
+    title: "Clipping Path",
     description:
       "Clipping path service allows removing the unwanted objects background from photos. You can also do color separation using clipping path. We provide a manual clipping path service using adobe photoshop. Pricing may vary depending on image complexity but is very competitive.",
     features: [
@@ -25,22 +25,6 @@ const servicesData = [
   },
   {
     id: 2,
-    title: "Multi Clipping Path",
-    description:
-      "Multi clipping path isolates multiple parts of an image for independent color correction and retouching. Essential for complex garments and products requiring distinct section adjustments.",
-    features: [
-      "Precise multi-path selections",
-      "Individual color correction ready",
-      "Complex shape isolation",
-      "Fast delivery within 24 hours",
-      "24/7 customer support",
-    ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
-    link: "/services/multi-clipping-path",
-  },
-  {
-    id: 3,
     title: "Background Removal",
     description:
       "Instantly upgrade your product presentation by replacing distracting backgrounds with pure white or transparent backdrops, perfectly optimized for Amazon, Shopify, and eBay.",
@@ -56,23 +40,7 @@ const servicesData = [
     link: "/services/background-removal",
   },
   {
-    id: 4,
-    title: "Image Masking Service",
-    description:
-      "Advanced image masking for complex subjects like hair, fur, or translucent objects where standard clipping paths fall short. Ensures natural, soft edges on any background.",
-    features: [
-      "Alpha channel masking",
-      "Hair and fur detailing",
-      "Translucent object masking",
-      "Fast delivery within 24 hours",
-      "24/7 customer support",
-    ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
-    link: "/services/image-masking",
-  },
-  {
-    id: 5,
+    id: 3,
     title: "Shadow Creation",
     description:
       "Add depth and realism to flat product images with custom drop shadows, natural shadows, or reflections. Creates a 3D effect that increases perceived product value.",
@@ -88,23 +56,23 @@ const servicesData = [
     link: "/services/shadow-creation",
   },
   {
-    id: 6,
-    title: "Ghost Mannequin Effect",
+    id: 4,
+    title: "Image Masking",
     description:
-      "Remove mannequins and combine front and inner neck shots to create a 3D hollow 'ghost' effect for apparel. The industry standard for fashion e-commerce.",
+      "Advanced image masking for complex subjects like hair, fur, or translucent objects where standard clipping paths fall short. Ensures natural, soft edges on any background.",
     features: [
-      "Neck joint and inner shadow",
-      "Sleeve and hem adjustments",
-      "Wrinkle removal included",
+      "Alpha channel masking",
+      "Hair and fur detailing",
+      "Translucent object masking",
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
     beforeImage: "/services/shoe-before.jpg",
     afterImage: "/services/shoe-after.jpg",
-    link: "/services/ghost-mannequin",
+    link: "/services/image-masking",
   },
   {
-    id: 7,
+    id: 5,
     title: "Photo Retouching",
     description:
       "High-end retouching to clean up dust, scratches, glares, and imperfections. Enhances the overall aesthetic while maintaining natural textures and materials.",
@@ -120,8 +88,8 @@ const servicesData = [
     link: "/services/photo-retouching",
   },
   {
-    id: 8,
-    title: "Jewelry Retouching",
+    id: 6,
+    title: "Jewellery Retouching",
     description:
       "Specialized retouching for fine jewelry. We enhance gem sparkle, correct metal colors, remove macro-lens dust, and add distinct shines to make pieces look luxurious.",
     features: [
@@ -133,10 +101,58 @@ const servicesData = [
     ],
     beforeImage: "/services/shoe-before.jpg",
     afterImage: "/services/shoe-after.jpg",
-    link: "/services/jewelry-retouching",
+    link: "/services/jewellery-retouching",
+  },
+  {
+    id: 7,
+    title: "Ghost Mannequin",
+    description:
+      "Remove mannequins and combine front and inner neck shots to create a 3D hollow 'ghost' effect for apparel. The industry standard for fashion e-commerce.",
+    features: [
+      "Neck joint and inner shadow",
+      "Sleeve and hem adjustments",
+      "Wrinkle removal included",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/shoe-before.jpg",
+    afterImage: "/services/shoe-after.jpg",
+    link: "/services/ghost-mannequin",
+  },
+  {
+    id: 8,
+    title: "Apparel Editing",
+    description:
+      "Comprehensive editing for clothing items including wrinkle removal, shape symmetry correction, and color matching to present garments flawlessly.",
+    features: [
+      "Symmetry and shape correction",
+      "Fabric smoothing and wrinkle removal",
+      "Color matching to physical items",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/shoe-before.jpg",
+    afterImage: "/services/shoe-after.jpg",
+    link: "/services/apparel-editing",
   },
   {
     id: 9,
+    title: "E-commerce Photo Editing",
+    description:
+      "A complete package tailored for online retailers. Includes background removal, resizing, margin alignment, and basic retouching for platform compliance.",
+    features: [
+      "Platform-specific resizing",
+      "Consistent margin alignment",
+      "Batch processing workflow",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/shoe-before.jpg",
+    afterImage: "/services/shoe-after.jpg",
+    link: "/services/ecommerce-photo-editing",
+  },
+  {
+    id: 10,
     title: "Color Correction",
     description:
       "Ensure exact color representation across your entire product catalog. We adjust white balance, exposure, and hue to match your physical products perfectly.",
@@ -152,22 +168,6 @@ const servicesData = [
     link: "/services/color-correction",
   },
   {
-    id: 10,
-    title: "E-commerce Image Editing",
-    description:
-      "A complete package tailored for online retailers. Includes background removal, resizing, margin alignment, and basic retouching for platform compliance.",
-    features: [
-      "Platform-specific resizing",
-      "Consistent margin alignment",
-      "Batch processing workflow",
-      "Fast delivery within 24 hours",
-      "24/7 customer support",
-    ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
-    link: "/services/ecommerce-editing",
-  },
-  {
     id: 11,
     title: "Real Estate Photo Editing",
     description:
@@ -181,39 +181,151 @@ const servicesData = [
     ],
     beforeImage: "/services/shoe-before.jpg",
     afterImage: "/services/shoe-after.jpg",
-    link: "/services/real-estate-editing",
+    link: "/services/real-estate-photo-editing",
   },
   {
     id: 12,
-    title: "Automotive Photo Editing",
+    title: "Food Retouching",
     description:
-      "Professional car photo editing for dealerships. We replace cluttered backgrounds with clean showroom environments and enhance paint reflections.",
+      "Make culinary dishes look mouth-watering. We adjust lighting, enhance colors, remove stray crumbs, and emphasize textures for menus and marketing.",
     features: [
-      "Showroom background replacement",
-      "Window reflection cleaning",
-      "Paint and trim enhancement",
+      "Color vibrancy enhancement",
+      "Lighting and steam adjustments",
+      "Distraction removal",
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
     beforeImage: "/services/shoe-before.jpg",
     afterImage: "/services/shoe-after.jpg",
-    link: "/services/automotive-editing",
+    link: "/services/food-retouching",
   },
   {
     id: 13,
-    title: "Raster to Vector",
+    title: "Headshot & Portrait Retouching",
     description:
-      "Convert pixelated logos and graphics into infinitely scalable vector formats (AI, EPS, SVG). Perfect for printing, embroidery, and large-scale signage.",
+      "Professional retouching for corporate headshots and personal portraits. We balance skin tones, remove blemishes, and brighten eyes while keeping it natural.",
     features: [
-      "100% manual vector tracing",
-      "Scalable without quality loss",
-      "Print-ready file formats",
+      "Natural skin smoothing",
+      "Teeth whitening & eye brightening",
+      "Stray hair removal",
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
     beforeImage: "/services/shoe-before.jpg",
     afterImage: "/services/shoe-after.jpg",
-    link: "/services/raster-to-vector",
+    link: "/services/headshot-portrait-retouching",
+  },
+  {
+    id: 14,
+    title: "Baby Photo Retouching",
+    description:
+      "Gentle retouching for newborn and baby photography. We smooth out flaky skin, correct redness, and create a soft, dreamy aesthetic for cherished memories.",
+    features: [
+      "Redness and blemish correction",
+      "Soft skin smoothing",
+      "Background cleanup",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/shoe-before.jpg",
+    afterImage: "/services/shoe-after.jpg",
+    link: "/services/baby-photo-retouching",
+  },
+  {
+    id: 15,
+    title: "Beauty Retouching",
+    description:
+      "High-end beauty retouching for magazines and cosmetics. Utilizing frequency separation and dodge/burn to preserve skin texture while achieving flawless results.",
+    features: [
+      "Frequency separation technique",
+      "Dodge and burn contouring",
+      "Makeup enhancement",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/shoe-before.jpg",
+    afterImage: "/services/shoe-after.jpg",
+    link: "/services/beauty-retouching",
+  },
+  {
+    id: 16,
+    title: "Model Retouching",
+    description:
+      "Comprehensive model retouching for fashion campaigns. Includes body contouring, clothing adjustments, skin perfecting, and atmospheric color grading.",
+    features: [
+      "Body and posture contouring",
+      "Skin and clothing perfection",
+      "Atmospheric color grading",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/shoe-before.jpg",
+    afterImage: "/services/shoe-after.jpg",
+    link: "/services/model-retouching",
+  },
+  {
+    id: 17,
+    title: "AI Photo Editing",
+    description:
+      "Leverage advanced AI tools combined with human expertise for rapid upscaling, generation of realistic elements, and complex scene modifications.",
+    features: [
+      "AI-assisted upscaling",
+      "Generative fill and expansion",
+      "Prompt-based element addition",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/shoe-before.jpg",
+    afterImage: "/services/shoe-after.jpg",
+    link: "/services/ai-photo-editing",
+  },
+  {
+    id: 18,
+    title: "Photo Restoration",
+    description:
+      "Breathe new life into old, torn, or faded photographs. We repair physical damage, restore lost contrast, and bring back details from historic images.",
+    features: [
+      "Tear and scratch repair",
+      "Fading and contrast recovery",
+      "Detail sharpening",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/shoe-before.jpg",
+    afterImage: "/services/shoe-after.jpg",
+    link: "/services/photo-restoration",
+  },
+  {
+    id: 19,
+    title: "Photo Manipulation",
+    description:
+      "Creative photo manipulation to combine multiple images into a seamless, surreal, or hyper-realistic composition. Perfect for advertising and concept art.",
+    features: [
+      "Seamless image compositing",
+      "Lighting and shadow matching",
+      "Creative concept execution",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/shoe-before.jpg",
+    afterImage: "/services/shoe-after.jpg",
+    link: "/services/photo-manipulation",
+  },
+  {
+    id: 20,
+    title: "Photo Colorization",
+    description:
+      "Accurately add historically appropriate and vibrant colors to black and white photography, revitalizing the past with stunning realism.",
+    features: [
+      "Accurate historical coloring",
+      "Vibrant skin tone matching",
+      "Texture-aware tinting",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/shoe-before.jpg",
+    afterImage: "/services/shoe-after.jpg",
+    link: "/services/photo-colorization",
   },
 ];
 
@@ -310,7 +422,7 @@ export default function Services() {
     <div className="w-full flex flex-col bg-transparent">
       {/* Header Section */}
       <section className="w-full pt-20 pb-12 lg:pt-40 lg:pb-16 px-4 md:px-8">
-        <div className="max-w-200 mx-auto flex flex-col items-center text-center">
+        <div className="max-w-[800px] mx-auto flex flex-col items-center text-center">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[rgba(37,99,235,0.15)] bg-[rgba(37,99,235,0.05)] text-[#2563EB] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-6">
             OUR COMPLETE SERVICES
           </div>
@@ -328,7 +440,7 @@ export default function Services() {
 
       {/* Services List Section */}
       <section className="w-full pb-16 lg:pb-24">
-        <div className="max-w-360 mx-auto px-4 md:px-8 xl:px-10 2xl:px-0 flex flex-col gap-12 md:gap-16">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-8 xl:px-10 2xl:px-0 flex flex-col gap-12 md:gap-16">
           {servicesData.map((service, index) => {
             const isEven = index % 2 === 0;
 
@@ -368,8 +480,7 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
-{/* 
-                  <Link href={service.link}>
+                  {/* <Link href={service.link}>
                     <button className="flex items-center justify-center gap-2 text-white font-semibold text-[13px] md:text-[14px] uppercase tracking-wide rounded-2xl bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_12px_24px_-8px_rgba(37,99,235,0.4)] px-8 py-4 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
                       READ MORE
                       <FiArrowRight
@@ -387,9 +498,9 @@ export default function Services() {
 
       {/* Bottom CTA Banner */}
       <section className="w-full py-16 px-4 md:px-8">
-        <div className="max-w-300 mx-auto rounded-[32px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.05)] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-          <div className="flex flex-col max-w-[600px]">
-            <h2 className="text-[#111827] text-[28px] md:text-[36px] font-[800] tracking-tight mb-4">
+        <div className="max-w-300 mx-auto rounded-4xl border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.05)] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+          <div className="flex flex-col max-w-150">
+            <h2 className="text-[#111827] text-[28px] md:text-[36px] font-extrabold tracking-tight mb-4">
               Ready to transform your images?
             </h2>
             <p className="text-[#6B7280] text-[15px] font-medium leading-relaxed">
