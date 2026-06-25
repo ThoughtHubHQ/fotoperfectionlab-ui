@@ -533,7 +533,7 @@ export default function Services() {
       >
         <motion.div
           variants={itemVariants}
-          className="max-w-[1200px] mx-auto rounded-[32px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.05)] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left"
+          className="max-w-300 mx-auto rounded-4xl border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.05)] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left"
         >
           <div className="flex flex-col max-w-[600px]">
             <h2 className="text-[#111827] text-[28px] md:text-[36px] font-[800] tracking-tight mb-4">

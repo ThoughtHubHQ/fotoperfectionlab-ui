@@ -1,11 +1,15 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiLinkedin, FiTwitter, FiInstagram, FiMail } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "@/lib/animation";
 import CraftingCredit from "./CraftingCredit";
 
 const year = new Date().getFullYear();
-// Mock Data
+
 const globalData = {
   logo: "/logo/logo.png",
   companyName: "Foto Perfection Lab",
@@ -58,10 +62,19 @@ export default function Footer() {
   return (
     <footer className="w-full px-4 md:px-8 xl:px-16 2xl:px-0 pt-16 md:pt-24 bg-transparent">
       {/* Container */}
-      <div className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-8 rounded-t-[36px] border-t border-[rgba(30,86,227,0.90)] bg-[rgba(30,86,227,0.10)] shadow-[0_6px_10px_0_rgba(37,99,235,0.25)]">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-50px" }}
+        className="max-w-360 mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-8 rounded-t-[36px] border-t border-[rgba(30,86,227,0.90)] bg-[rgba(30,86,227,0.10)] shadow-[0_6px_10px_0_rgba(37,99,235,0.25)]"
+      >
         {/* Top */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-          <div className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-8">
+          <motion.div
+            variants={itemVariants}
+            className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-8"
+          >
             <Link href="/" className="mb-6">
               <Image
                 src={globalData.logo}
@@ -92,12 +105,16 @@ export default function Footer() {
                 );
               })}
             </div>
-          </div>
+          </motion.div>
 
           {/* Links */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6">
             {footerLinks.map((section, index) => (
-              <div key={index} className="flex flex-col">
+              <motion.div
+                variants={itemVariants}
+                key={index}
+                className="flex flex-col"
+              >
                 <h3 className="text-[#2563EB] text-[16px] font-bold mb-6 tracking-wide">
                   {section.title}
                 </h3>
@@ -113,21 +130,24 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
+        <motion.div
+          variants={itemVariants}
+          className="w-full flex flex-col md:flex-row items-center justify-between gap-4 pt-8"
+        >
           <p className="text-gray-500 text-[13px] md:text-[14px] font-medium text-center md:text-left">
             {globalData.copyright}
           </p>
           <div className="flex items-center gap-6 mt-5 md:mt-0">
             <CraftingCredit />
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </footer>
   );
 }
