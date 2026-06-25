@@ -41,19 +41,17 @@ const footerLinks = [
     title: "Company",
     links: [
       { label: "About Us", url: "/about" },
-      { label: "Our Team", url: "/team" },
+      { label: "Services", url: "/services" },
       { label: "Portfolio", url: "/portfolio" },
-      { label: "Contact", url: "/contact" },
+      { label: "Pricing", url: "/pricing" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Blog", url: "/blog" },
-      { label: "Pricing", url: "/pricing" },
-      { label: "FAQ", url: "/faq" },
-      { label: "Terms of Service", url: "/terms" },
-      { label: "Privacy Policy", url: "/privacy" },
+      { label: "Terms and Conditions", url: "/terms-and-conditions" },
+      { label: "Privacy Policy", url: "/privacy-policy" },
+      { label: "Contact", url: "/contact" },
     ],
   },
 ];
