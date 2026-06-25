@@ -4,8 +4,13 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiCheck, FiZap } from "react-icons/fi";
+import { motion } from "framer-motion";
+import {
+  containerVariants,
+  itemVariants,
+  imageVariants,
+} from "@/lib/animation";
 
-// Mock Data
 const servicesData = [
   {
     id: 1,
@@ -329,7 +334,6 @@ const servicesData = [
   },
 ];
 
-// Hover-based Before/After Image Slider Component
 const BeforeAfterImage = ({
   beforeImg,
   afterImg,
@@ -349,9 +353,7 @@ const BeforeAfterImage = ({
     setSliderPos((x / width) * 100);
   };
 
-  const handleMouseLeave = () => {
-    setSliderPos(50);
-  };
+  const handleMouseLeave = () => setSliderPos(50);
 
   return (
     <div
@@ -366,7 +368,6 @@ const BeforeAfterImage = ({
         fill
         className="object-cover pointer-events-none"
       />
-
       <div
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
@@ -380,7 +381,6 @@ const BeforeAfterImage = ({
           className="object-cover"
         />
       </div>
-
       <div
         className="absolute top-0 bottom-0 z-20 w-[2px] bg-white pointer-events-none transition-transform duration-75 ease-out"
         style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
@@ -421,22 +421,37 @@ export default function Services() {
   return (
     <div className="w-full flex flex-col bg-transparent">
       {/* Header Section */}
-      <section className="w-full pt-20 pb-12 lg:pt-40 lg:pb-16 px-4 md:px-8">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+        className="w-full pt-20 pb-12 lg:pt-40 lg:pb-16 px-4 md:px-8"
+      >
         <div className="max-w-[800px] mx-auto flex flex-col items-center text-center">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[rgba(37,99,235,0.15)] bg-[rgba(37,99,235,0.05)] text-[#2563EB] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-6">
+          <motion.div
+            variants={itemVariants}
+            className="inline-flex items-center px-4 py-1.5 rounded-full border border-[rgba(37,99,235,0.15)] bg-[rgba(37,99,235,0.05)] text-[#2563EB] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-6"
+          >
             OUR COMPLETE SERVICES
-          </div>
-          <h1 className="text-[#111827] text-[36px] md:text-[48px] lg:text-[56px] font-[800] tracking-tight leading-[1.1] mb-6">
+          </motion.div>
+          <motion.h1
+            variants={itemVariants}
+            className="text-[#111827] text-[36px] md:text-[48px] lg:text-[56px] font-[800] tracking-tight leading-[1.1] mb-6"
+          >
             Comprehensive Image <br className="hidden md:block" />
             <span className="text-[#2563EB]">Editing Solutions</span>
-          </h1>
-          <p className="text-[#6B7280] text-[15px] md:text-[17px] font-medium leading-relaxed max-w-[650px]">
+          </motion.h1>
+          <motion.p
+            variants={itemVariants}
+            className="text-[#6B7280] text-[15px] md:text-[17px] font-medium leading-relaxed max-w-[650px]"
+          >
             Explore our full suite of professional photo editing and retouching
             services. Drag the slider on any image below to experience our
             precision before and after.
-          </p>
+          </motion.p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services List Section */}
       <section className="w-full pb-16 lg:pb-24">
@@ -445,31 +460,52 @@ export default function Services() {
             const isEven = index % 2 === 0;
 
             return (
-              <div
+              <motion.div
                 key={service.id}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={containerVariants}
                 className={`w-full flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-16 items-center p-6 md:p-10 lg:p-12 rounded-[28px] bg-[#EBF2FF]`}
               >
-                {/* Image Side */}
-                <div className="w-full lg:w-1/2 shrink-0">
+                <motion.div
+                  variants={imageVariants}
+                  className="w-full lg:w-1/2 shrink-0"
+                >
                   <BeforeAfterImage
                     beforeImg={service.beforeImage}
                     afterImg={service.afterImage}
                     alt={service.title}
                   />
-                </div>
+                </motion.div>
 
-                {/* Content Side */}
-                <div className="w-full lg:w-1/2 flex flex-col items-start">
-                  <h2 className="text-[#111827] text-[24px] md:text-[32px] font-[800] tracking-tight mb-4">
+                <motion.div
+                  variants={containerVariants}
+                  className="w-full lg:w-1/2 flex flex-col items-start"
+                >
+                  <motion.h2
+                    variants={itemVariants}
+                    className="text-[#111827] text-[24px] md:text-[32px] font-[800] tracking-tight mb-4"
+                  >
                     {service.title}
-                  </h2>
-                  <p className="text-[#6B7280] text-[14px] md:text-[15px] font-medium leading-relaxed mb-8">
+                  </motion.h2>
+                  <motion.p
+                    variants={itemVariants}
+                    className="text-[#6B7280] text-[14px] md:text-[15px] font-medium leading-relaxed mb-8"
+                  >
                     {service.description}
-                  </p>
+                  </motion.p>
 
-                  <ul className="flex flex-col gap-3.5 mb-10">
+                  <motion.ul
+                    variants={containerVariants}
+                    className="flex flex-col gap-3.5 mb-10"
+                  >
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-3">
+                      <motion.li
+                        key={idx}
+                        variants={itemVariants}
+                        className="flex items-center gap-3"
+                      >
                         <FiCheck
                           className="text-[#2563EB] w-[18px] h-[18px] shrink-0"
                           strokeWidth={3}
@@ -477,30 +513,30 @@ export default function Services() {
                         <span className="text-[#111827] text-[13px] md:text-[14px] font-bold">
                           {feature}
                         </span>
-                      </li>
+                      </motion.li>
                     ))}
-                  </ul>
-                  {/* <Link href={service.link}>
-                    <button className="flex items-center justify-center gap-2 text-white font-semibold text-[13px] md:text-[14px] uppercase tracking-wide rounded-2xl bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_12px_24px_-8px_rgba(37,99,235,0.4)] px-8 py-4 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
-                      READ MORE
-                      <FiArrowRight
-                        className="w-[18px] h-[18px]"
-                        strokeWidth={2.5}
-                      />
-                    </button>
-                  </Link> */}
-                </div>
-              </div>
+                  </motion.ul>
+                </motion.div>
+              </motion.div>
             );
           })}
         </div>
       </section>
 
       {/* Bottom CTA Banner */}
-      <section className="w-full py-16 px-4 md:px-8">
-        <div className="max-w-300 mx-auto rounded-4xl border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.05)] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-          <div className="flex flex-col max-w-150">
-            <h2 className="text-[#111827] text-[28px] md:text-[36px] font-extrabold tracking-tight mb-4">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={containerVariants}
+        className="w-full py-16 px-4 md:px-8"
+      >
+        <motion.div
+          variants={itemVariants}
+          className="max-w-[1200px] mx-auto rounded-[32px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.05)] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left"
+        >
+          <div className="flex flex-col max-w-[600px]">
+            <h2 className="text-[#111827] text-[28px] md:text-[36px] font-[800] tracking-tight mb-4">
               Ready to transform your images?
             </h2>
             <p className="text-[#6B7280] text-[15px] font-medium leading-relaxed">
@@ -515,8 +551,8 @@ export default function Services() {
               GET A FREE QUOTE
             </button>
           </Link>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
     </div>
   );
 }
