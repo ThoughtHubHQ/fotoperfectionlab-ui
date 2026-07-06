@@ -79,7 +79,7 @@ export default function Footer() {
                 alt={globalData.companyName}
                 width={200}
                 height={50}
-                className="h-10 w-auto object-contain"
+                className="h-25 w-auto object-contain"
                 priority
               />
             </Link>

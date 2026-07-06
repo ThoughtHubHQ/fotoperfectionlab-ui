@@ -8,18 +8,18 @@ import {
   LuSparkle,
   LuWand,
   LuPalette,
-  LuSmile,
   LuSquare,
 } from "react-icons/lu";
 import { FaArrowRight, FaStar } from "react-icons/fa";
+import { RiDiamondRingLine } from "react-icons/ri";
 import Link from "next/link";
 
 const heroSlides = [
   {
     id: 1,
-    title: "BASIC RETOUCH",
+    title: "JEWELRY RETOUCH",
     subtitle: "Color, Light, Exposure",
-    icon: LuImage,
+    icon: RiDiamondRingLine,
     photo: "/hero/heroSlide1.jpg",
     slotText: "Premium Quality",
   },
@@ -51,7 +51,7 @@ const heroSlides = [
     id: 5,
     title: "SKIN RETOUCH",
     subtitle: "Smooth & Blemish Remove",
-    icon: LuSmile,
+    icon: LuImage,
     photo: "/hero/heroSlide5.jpg",
     slotText: "On-Time Delivery",
   },

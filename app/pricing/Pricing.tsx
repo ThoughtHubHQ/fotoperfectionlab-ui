@@ -76,7 +76,7 @@ export default function Pricing() {
                   key={plan.id}
                   className="p-6 flex items-center justify-center border-r border-[rgba(29,97,242,0.15)] last:border-r-0"
                 >
-                  <h3 className="text-[#2563EB] text-[20px] font-[800] tracking-tight">
+                  <h3 className="text-[#2563EB] text-[30px] font-extrabold tracking-tight">
                     {plan.name}
                   </h3>
                 </div>
@@ -94,7 +94,7 @@ export default function Pricing() {
                   <span className="text-white/80 text-[10px] font-bold uppercase tracking-widest mb-1">
                     START FROM
                   </span>
-                  <div className="text-white text-[32px] md:text-[40px] font-[800] leading-none mb-1">
+                  <div className="text-white text-[32px] md:text-[40px] font-extrabold leading-none mb-1">
                     ${plan.price}
                   </div>
                   <span className="text-white/80 text-[11px] font-semibold">
@@ -112,7 +112,7 @@ export default function Pricing() {
                   className="grid grid-cols-4 border-b border-[rgba(29,97,242,0.15)] hover:bg-white/80 transition-colors duration-200"
                 >
                   <div className="py-4 px-6 md:px-8 flex items-center border-r border-[rgba(29,97,242,0.15)]">
-                    <span className="text-[#111827] text-[13px] md:text-[14px] font-[700]">
+                    <span className="text-[#111827] text-[13px] md:text-[14px] font-bold">
                       {feature.name}
                     </span>
                   </div>

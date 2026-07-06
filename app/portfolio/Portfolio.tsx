@@ -10,12 +10,12 @@ const portfolioData = [
     id: "bg-removal",
     prefix: "Background",
     highlight: "Removal",
-    aspect: "aspect-[3/2]",
+    aspect: "aspect-[3/2.5]",
     images: [
-      "/portfolio/bg-1.jpg",
-      "/portfolio/bg-2.jpg",
-      "/portfolio/bg-3.jpg",
-      "/portfolio/bg-4.jpg",
+      "/portfolio/bg-remove/bg1.jpg",
+      "/portfolio/bg-remove/bg2.jpg",
+      "/portfolio/bg-remove/bg3.jpg",
+      "/portfolio/bg-remove/bg4.jpg",
     ],
   },
   {

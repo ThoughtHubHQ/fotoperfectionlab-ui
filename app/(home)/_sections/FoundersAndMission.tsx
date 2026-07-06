@@ -10,18 +10,19 @@ import {
   FiBriefcase,
   FiArrowRight,
 } from "react-icons/fi";
+import { FaBehance } from "react-icons/fa";
 
 // Mock Data Arrays
 const foundersData = [
   {
     id: 1,
-    name: "Sayeed Anwer",
+    name: "Sayeed Anwar",
     role: "Co-Founder & CEO",
     description:
       "10+ years of experience in photo editing industry. Visionary leader and quality enthusiast.",
     image: "/founders/founder1.jpg",
     socials: {
-      facebook: "https://facebook.com",
+      behance: "https://behance.net/mdsayeed459f62",
       linkedin: "https://linkedin.com",
       email: "mailto:sayeed@example.com",
     },
@@ -34,8 +35,8 @@ const foundersData = [
       "Expert in visual aesthetics and creative editing. Ensures every image looks its best.",
     image: "/founders/founder2.jpg",
     socials: {
-      facebook: "https://facebook.com",
-      linkedin: "https://linkedin.com",
+      behance: "https://behance.net/mdsaziburrahman2",
+      linkedin: "https://linkedin.com/in/md-sazibur-rahman-a70168257",
       email: "mailto:sazibur@example.com",
     },
   },
@@ -93,7 +94,7 @@ export default function FoundersAndMission() {
                 </div>
 
                 {/* Info */}
-                <h3 className="text-[#111827] text-[18px] font-bold tracking-tight mb-1">
+                <h3 className="text-[#111827] text-[18px] font-bold tracking-tight mb-1 uppercase">
                   {founder.name}
                 </h3>
                 <h4 className="text-[#2563EB] text-[13px] font-bold mb-4">
@@ -106,12 +107,12 @@ export default function FoundersAndMission() {
                 {/* Social Links */}
                 <div className="flex items-center gap-3 mb-2">
                   <Link
-                    href={founder.socials.facebook}
+                    href={founder.socials.behance}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <div className="w-10 h-10 rounded-xl border border-[rgba(41,98,255,0.13)] bg-[rgba(41,98,255,0.07)] flex items-center justify-center text-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-colors duration-300">
-                      <FiFacebook className="w-4.5 h-4.5" strokeWidth={2.5} />
+                      <FaBehance className="w-4.5 h-4.5" strokeWidth={2.5} />
                     </div>
                   </Link>
                   <Link

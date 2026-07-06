@@ -24,8 +24,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
+    beforeImage: "/services/cp1.jpg",
+    afterImage: "/services/cp2.jpg",
     link: "/services/clipping-path",
   },
   {
@@ -485,7 +485,7 @@ export default function Services() {
                 >
                   <motion.h2
                     variants={itemVariants}
-                    className="text-[#111827] text-[24px] md:text-[32px] font-[800] tracking-tight mb-4"
+                    className="text-[#2563eb] text-[24px] md:text-[32px] font-[800] tracking-tight mb-4"
                   >
                     {service.title}
                   </motion.h2>

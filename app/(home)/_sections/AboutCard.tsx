@@ -44,7 +44,7 @@ export default function AboutCard() {
         {/* Left Column: Text Content & CTA */}
         <div className="w-full lg:w-[55%] flex flex-col items-start text-left">
           <h2 className="text-[#111827] text-4xl md:text-5xl lg:text-[56px] font-[900] tracking-tight leading-[1.1] mb-6">
-            About Foto <span className="text-[#2563EB]">Perfection Lab</span>
+            About <span className="text-[#2563EB]">Foto Perfection Lab</span>
           </h2>
 
           <h3 className="text-[#111827] text-lg md:text-[22px] font-bold mb-6">

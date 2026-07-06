@@ -35,7 +35,7 @@ const coreAdvantages = [
   },
   {
     id: 4,
-    title: "QUICK QUALITY",
+    title: "QUICK TURNAROUND",
     description:
       "Our standard delivery times are 24 hours but Fast turnaround is our top ability. We will offer you to 1-Hours, 3-Hours, 6-Hours, and 12-Hours services according to your special urgency. Don't worry about the quality. Superb quality always here.",
     icon: LuMail,
