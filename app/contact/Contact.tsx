@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FiClock, FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi";
+import { ImSpinner3 } from "react-icons/im";
 
 const contactInfoData = [
   {
@@ -31,13 +32,19 @@ const businessHoursData = [
 ];
 
 export default function ContactSection() {
-  // Form state ready for Nodemailer integration
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
     message: "",
   });
+
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [feedbackMsg, setFeedbackMsg] = useState("");
+  const [showFeedback, setShowFeedback] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -46,11 +53,54 @@ export default function ContactSection() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleFeedback = (
+    type: "success" | "error",
+    msg: string,
+    resetForm: boolean = false,
+  ) => {
+    setStatus(type);
+    setFeedbackMsg(msg);
+    setShowFeedback(true);
+
+    if (resetForm) {
+      setFormData({ fullName: "", email: "", phone: "", message: "" });
+    }
+
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setShowFeedback(false);
+    }, 4000);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement Nodemailer API call here
-    console.log("Form Data to send:", formData);
-    // alert("Message sent successfully!");
+    setStatus("loading");
+    setFeedbackMsg("");
+    setShowFeedback(false);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        handleFeedback("success", "Message sent successfully!", true);
+      } else {
+        handleFeedback(
+          "error",
+          "Failed to send message. Please try again later.",
+        );
+      }
+    } catch (error) {
+      handleFeedback(
+        "error",
+        "An unexpected error occurred. Please try again.",
+      );
+    }
   };
 
   return (
@@ -144,7 +194,7 @@ export default function ContactSection() {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
-                  placeholder="Fardin Evan"
+                  placeholder="John Doe"
                   required
                   className="w-full px-4 py-3.5 text-[14.5px] text-[#111827] placeholder:text-[#9CA3AF] rounded-[12px] border border-[#E2E8F0] bg-[rgba(248,250,252,0.50)] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 focus:border-[#2563EB] transition-all"
                 />
@@ -210,15 +260,41 @@ export default function ContactSection() {
                 />
               </div>
 
-              {/* Submit Button */}
-              <div>
+              {/* Submit Button & Inline Message */}
+              <div className="flex flex-col gap-0 relative">
                 <button
                   type="submit"
-                  className="flex items-center justify-center gap-2 text-white font-semibold text-[15px] rounded-[16px] bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_20px_40px_-10px_rgba(30,86,227,0.22)] px-8 py-3.5 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto"
+                  disabled={status === "loading"}
+                  className="flex items-center justify-center gap-2 text-white font-semibold text-[15px] rounded-[16px] bg-[#2563EB] hover:bg-[#1D4ED8] disabled:bg-[#9CA3AF] disabled:cursor-not-allowed shadow-[0_20px_40px_-10px_rgba(30,86,227,0.22)] px-8 py-3.5 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto z-10"
                 >
-                  <FiSend className="w-4 h-4 mb-0.5" strokeWidth={2.5} />
-                  Send Message
+                  {status === "loading" ? (
+                    <>
+                      <ImSpinner3 className="animate-spin" /> Sending...
+                    </>
+                  ) : (
+                    <>
+                      <FiSend className="w-4 h-4 mb-0.5" strokeWidth={2.5} />
+                      Send Message
+                    </>
+                  )}
                 </button>
+
+                {/* Sliding Feedback Message */}
+                <div
+                  className={`transition-all duration-500 ease-in-out overflow-hidden transform ${
+                    showFeedback
+                      ? "max-h-20 opacity-100 translate-y-0 mt-4"
+                      : "max-h-0 opacity-0 -translate-y-4 mt-0"
+                  }`}
+                >
+                  <div
+                    className={`text-[14px] text-center font-medium px-2 ${
+                      status === "success" ? "text-[#111827]" : "text-red-600"
+                    }`}
+                  >
+                    {feedbackMsg}
+                  </div>
+                </div>
               </div>
             </form>
           </div>

@@ -37,7 +37,7 @@ const foundersData = [
     socials: {
       behance: "https://behance.net/mdsaziburrahman2",
       linkedin: "https://linkedin.com/in/md-sazibur-rahman-a70168257",
-      email: "mailto:sazibur@example.com",
+      email: "mailto:mdsazibur34@gmail.com",
     },
   },
 ];
