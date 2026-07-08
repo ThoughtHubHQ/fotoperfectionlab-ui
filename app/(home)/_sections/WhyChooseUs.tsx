@@ -91,10 +91,10 @@ export default function WhyChooseUs() {
                   <motion.div
                     key={item.id}
                     variants={itemVariants}
-                    className={`md:flex items-center gap-6 p-6 lg:p-8 bg-transparent hover:bg-[rgba(37,99,235,0.06)] transition-colors duration-300
+                    className={`group md:flex items-center gap-6 p-6 lg:p-8 bg-transparent hover:bg-[rgba(37,99,235,0.06)] transition-colors duration-300
                       border-[rgba(175,189,220,0.15)] border`}
                   >
-                    <div className="shrink-0 w-12 h-12 rounded-[14px] bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.15)] flex items-center justify-center text-[#2563EB] shadow-sm">
+                    <div className="shrink-0 w-12 h-12 rounded-[14px] bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.15)] flex items-center justify-center text-[#2563EB] shadow-sm group-hover:bg-[#2563EB] group-hover:text-white">
                       <Icon className="w-5 h-5" strokeWidth={2.5} />
                     </div>
 
