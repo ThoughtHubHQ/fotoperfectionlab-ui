@@ -91,20 +91,43 @@ const servicesData = [
   },
 ];
 
-// 1. Updated BeforeAfterImage to accept sliderPos as a prop
+// Added onPosChange prop to handle touch events specific to the image
 const BeforeAfterImage = ({
   beforeImg,
   afterImg,
   alt,
   sliderPos,
+  onPosChange,
 }: {
   beforeImg: string;
   afterImg: string;
   alt: string;
   sliderPos: number;
+  onPosChange?: (pos: number) => void;
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Mobile Touch Support isolated to the image
+  const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!containerRef.current || !onPosChange) return;
+    const { left, width } = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(e.touches[0].clientX - left, width));
+    onPosChange((x / width) * 100);
+  };
+
+  const handleTouchEnd = () => {
+    if (onPosChange) onPosChange(50);
+  };
+
   return (
-    <div className="relative w-full aspect-4/3 rounded-[20px] overflow-hidden select-none bg-[#DCE7FF]">
+    <div
+      ref={containerRef}
+      onTouchStart={handleTouch}
+      onTouchMove={handleTouch}
+      onTouchEnd={handleTouchEnd}
+      // Added touch-pan-y here so scrolling works flawlessly over the image
+      className="relative w-full aspect-4/3 rounded-[20px] overflow-hidden select-none bg-[#DCE7FF] touch-pan-y"
+    >
       {/* After Image (Background layer) */}
       <Image
         src={afterImg}
@@ -165,25 +188,16 @@ const BeforeAfterImage = ({
   );
 };
 
-// 2. Created a ServiceCard component to track mouse/touch over the whole card
 const ServiceCard = ({ service, index }: { service: any; index: number }) => {
   const isEven = index % 2 === 0;
   const [sliderPos, setSliderPos] = useState(50);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Desktop Mouse Support
+  // Desktop Mouse Support (Applies to the whole card)
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const { left, width } = cardRef.current.getBoundingClientRect();
     const x = Math.max(0, Math.min(e.clientX - left, width));
-    setSliderPos((x / width) * 100);
-  };
-
-  // Mobile Touch Support
-  const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const { left, width } = cardRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(e.touches[0].clientX - left, width));
     setSliderPos((x / width) * 100);
   };
 
@@ -194,13 +208,10 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleReset}
-      onTouchStart={handleTouch}
-      onTouchMove={handleTouch}
-      onTouchEnd={handleReset}
-      // Added relative and touch-pan-y for seamless vertical scrolling on mobile
+      // Removed touch events from the main card container
       className={`w-full flex flex-col ${
         isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-      } gap-8 lg:gap-16 items-center p-6 md:p-10 lg:p-12 rounded-[28px] bg-[#EBF2FF] relative touch-pan-y`}
+      } gap-8 lg:gap-16 items-center p-6 md:p-10 lg:p-12 rounded-[28px] bg-[#EBF2FF] relative`}
     >
       {/* Image Side */}
       <div className="w-full lg:w-1/2 shrink-0">
@@ -209,6 +220,7 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
           afterImg={service.afterImage}
           alt={service.title}
           sliderPos={sliderPos}
+          onPosChange={setSliderPos}
         />
       </div>
 
@@ -263,7 +275,6 @@ export default function HomeServices() {
 
         {/* Services List (Alternating 1 Column Layout) */}
         <div className="w-full flex flex-col gap-12 md:gap-16 mb-16">
-          {/* 3. Replaced direct mapping with the new ServiceCard component */}
           {displayServices.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
