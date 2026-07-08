@@ -91,37 +91,20 @@ const servicesData = [
   },
 ];
 
-// Hover-based Before/After Image Slider Component
+// 1. Updated BeforeAfterImage to accept sliderPos as a prop
 const BeforeAfterImage = ({
   beforeImg,
   afterImg,
   alt,
+  sliderPos,
 }: {
   beforeImg: string;
   afterImg: string;
   alt: string;
+  sliderPos: number;
 }) => {
-  const [sliderPos, setSliderPos] = useState(50);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
-    const { left, width } = containerRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(e.clientX - left, width));
-    setSliderPos((x / width) * 100);
-  };
-
-//   const handleMouseLeave = () => {
-//     setSliderPos(50);
-//   };
-
   return (
-    <div
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-    //   onMouseLeave={handleMouseLeave}
-      className="relative w-full aspect-4/3 rounded-[20px] overflow-hidden cursor-ew-resize select-none bg-[#DCE7FF]"
-    >
+    <div className="relative w-full aspect-4/3 rounded-[20px] overflow-hidden select-none bg-[#DCE7FF]">
       {/* After Image (Background layer) */}
       <Image
         src={afterImg}
@@ -147,7 +130,7 @@ const BeforeAfterImage = ({
 
       {/* Slider Line & Handle */}
       <div
-        className="absolute top-0 bottom-0 z-20 w-0.5 bg-white pointer-events-none"
+        className="absolute top-0 bottom-0 z-20 w-0.5 bg-white pointer-events-none transition-transform duration-75 ease-out"
         style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
       >
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.15)] flex items-center justify-center">
@@ -182,6 +165,80 @@ const BeforeAfterImage = ({
   );
 };
 
+// 2. Created a ServiceCard component to track mouse/touch over the whole card
+const ServiceCard = ({ service, index }: { service: any; index: number }) => {
+  const isEven = index % 2 === 0;
+  const [sliderPos, setSliderPos] = useState(50);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Desktop Mouse Support
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const { left, width } = cardRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(e.clientX - left, width));
+    setSliderPos((x / width) * 100);
+  };
+
+  // Mobile Touch Support
+  const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const { left, width } = cardRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(e.touches[0].clientX - left, width));
+    setSliderPos((x / width) * 100);
+  };
+
+  const handleReset = () => setSliderPos(50);
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleReset}
+      onTouchStart={handleTouch}
+      onTouchMove={handleTouch}
+      onTouchEnd={handleReset}
+      // Added relative and touch-pan-y for seamless vertical scrolling on mobile
+      className={`w-full flex flex-col ${
+        isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+      } gap-8 lg:gap-16 items-center p-6 md:p-10 lg:p-12 rounded-[28px] bg-[#EBF2FF] relative touch-pan-y`}
+    >
+      {/* Image Side */}
+      <div className="w-full lg:w-1/2 shrink-0">
+        <BeforeAfterImage
+          beforeImg={service.beforeImage}
+          afterImg={service.afterImage}
+          alt={service.title}
+          sliderPos={sliderPos}
+        />
+      </div>
+
+      {/* Content Side */}
+      <div className="w-full lg:w-1/2 flex flex-col items-start">
+        <h3 className="text-[#111827] text-[24px] md:text-[28px] font-[800] tracking-tight mb-4">
+          {service.title}
+        </h3>
+        <p className="text-[#6B7280] text-[14px] md:text-[15px] font-medium leading-relaxed mb-8">
+          {service.description}
+        </p>
+
+        <ul className="flex flex-col gap-3.5 mb-10">
+          {service.features.map((feature: string, idx: number) => (
+            <li key={idx} className="flex items-center gap-3">
+              <FiCheck
+                className="text-[#2563EB] w-[18px] h-[18px] shrink-0"
+                strokeWidth={3}
+              />
+              <span className="text-[#111827] text-[13px] md:text-[14px] font-bold">
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
 export default function HomeServices() {
   const displayServices = servicesData.slice(0, 4);
 
@@ -206,59 +263,10 @@ export default function HomeServices() {
 
         {/* Services List (Alternating 1 Column Layout) */}
         <div className="w-full flex flex-col gap-12 md:gap-16 mb-16">
-          {displayServices.map((service, index) => {
-            const isEven = index % 2 === 0;
-
-            return (
-              <div
-                key={service.id}
-                className={`w-full flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-16 items-center p-6 md:p-10 lg:p-12 rounded-[28px] bg-[#EBF2FF]`}
-              >
-                {/* Image Side */}
-                <div className="w-full lg:w-1/2 shrink-0">
-                  <BeforeAfterImage
-                    beforeImg={service.beforeImage}
-                    afterImg={service.afterImage}
-                    alt={service.title}
-                  />
-                </div>
-
-                {/* Content Side */}
-                <div className="w-full lg:w-1/2 flex flex-col items-start">
-                  <h3 className="text-[#111827] text-[24px] md:text-[28px] font-[800] tracking-tight mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-[#6B7280] text-[14px] md:text-[15px] font-medium leading-relaxed mb-8">
-                    {service.description}
-                  </p>
-
-                  <ul className="flex flex-col gap-3.5 mb-10">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-3">
-                        <FiCheck
-                          className="text-[#2563EB] w-[18px] h-[18px] shrink-0"
-                          strokeWidth={3}
-                        />
-                        <span className="text-[#111827] text-[13px] md:text-[14px] font-bold">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* <Link href={service.link}>
-                    <button className="flex items-center justify-center gap-2 text-white font-semibold text-[13px] md:text-[14px] uppercase tracking-wide rounded-[16px] bg-[#2563EB] hover:bg-[#1D4ED8] shadow-[0_12px_24px_-8px_rgba(37,99,235,0.4)] px-8 py-4 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
-                      READ MORE
-                      <FiArrowRight
-                        className="w-[18px] h-[18px]"
-                        strokeWidth={2.5}
-                      />
-                    </button>
-                  </Link> */}
-                </div>
-              </div>
-            );
-          })}
+          {/* 3. Replaced direct mapping with the new ServiceCard component */}
+          {displayServices.map((service, index) => (
+            <ServiceCard key={service.id} service={service} index={index} />
+          ))}
         </div>
 
         {/* View All Button */}
