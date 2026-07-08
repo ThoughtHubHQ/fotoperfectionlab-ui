@@ -338,30 +338,15 @@ const BeforeAfterImage = ({
   beforeImg,
   afterImg,
   alt,
+  sliderPos,
 }: {
   beforeImg: string;
   afterImg: string;
   alt: string;
+  sliderPos: number;
 }) => {
-  const [sliderPos, setSliderPos] = useState(50);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
-    const { left, width } = containerRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(e.clientX - left, width));
-    setSliderPos((x / width) * 100);
-  };
-
-  const handleMouseLeave = () => setSliderPos(50);
-
   return (
-    <div
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden cursor-ew-resize select-none bg-[#DCE7FF] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05)]"
-    >
+    <div className="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden select-none bg-[#DCE7FF] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05)]">
       <Image
         src={afterImg}
         alt={`${alt} After`}
@@ -417,6 +402,98 @@ const BeforeAfterImage = ({
   );
 };
 
+const ServiceCard = ({ service, index }: { service: any; index: number }) => {
+  const isEven = index % 2 === 0;
+  const [sliderPos, setSliderPos] = useState(50);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Desktop Mouse Support
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const { left, width } = cardRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(e.clientX - left, width));
+    setSliderPos((x / width) * 100);
+  };
+
+  // Mobile Touch Support
+  const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const { left, width } = cardRef.current.getBoundingClientRect();
+    // Using e.touches[0] to track the first finger touching the screen
+    const x = Math.max(0, Math.min(e.touches[0].clientX - left, width));
+    setSliderPos((x / width) * 100);
+  };
+
+  const handleReset = () => setSliderPos(50);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleReset}
+      onTouchStart={handleTouch}
+      onTouchMove={handleTouch}
+      onTouchEnd={handleReset}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+      // Added touch-pan-y so vertical scrolling works seamlessly on mobile devices
+      className={`w-full flex flex-col ${
+        isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+      } gap-8 lg:gap-16 items-center p-6 md:p-10 lg:p-12 rounded-[28px] bg-[#EBF2FF] relative touch-pan-y`}
+    >
+      <motion.div variants={imageVariants} className="w-full lg:w-1/2 shrink-0">
+        <BeforeAfterImage
+          beforeImg={service.beforeImage}
+          afterImg={service.afterImage}
+          alt={service.title}
+          sliderPos={sliderPos}
+        />
+      </motion.div>
+
+      <motion.div
+        variants={containerVariants}
+        className="w-full lg:w-1/2 flex flex-col items-start"
+      >
+        <motion.h2
+          variants={itemVariants}
+          className="text-[#2563eb] text-[24px] md:text-[32px] font-[800] tracking-tight mb-4"
+        >
+          {service.title}
+        </motion.h2>
+        <motion.p
+          variants={itemVariants}
+          className="text-[#6B7280] text-[14px] md:text-[15px] font-medium leading-relaxed mb-8"
+        >
+          {service.description}
+        </motion.p>
+
+        <motion.ul
+          variants={containerVariants}
+          className="flex flex-col gap-3.5 mb-10"
+        >
+          {service.features.map((feature: string, idx: number) => (
+            <motion.li
+              key={idx}
+              variants={itemVariants}
+              className="flex items-center gap-3"
+            >
+              <FiCheck
+                className="text-[#2563EB] w-[18px] h-[18px] shrink-0"
+                strokeWidth={3}
+              />
+              <span className="text-[#111827] text-[13px] md:text-[14px] font-bold">
+                {feature}
+              </span>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 export default function Services() {
   return (
     <div className="w-full flex flex-col bg-transparent">
@@ -456,70 +533,9 @@ export default function Services() {
       {/* Services List Section */}
       <section className="w-full pb-16 lg:pb-24">
         <div className="max-w-[1440px] mx-auto px-4 md:px-8 xl:px-10 2xl:px-0 flex flex-col gap-12 md:gap-16">
-          {servicesData.map((service, index) => {
-            const isEven = index % 2 === 0;
-
-            return (
-              <motion.div
-                key={service.id}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-100px" }}
-                variants={containerVariants}
-                className={`w-full flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-16 items-center p-6 md:p-10 lg:p-12 rounded-[28px] bg-[#EBF2FF]`}
-              >
-                <motion.div
-                  variants={imageVariants}
-                  className="w-full lg:w-1/2 shrink-0"
-                >
-                  <BeforeAfterImage
-                    beforeImg={service.beforeImage}
-                    afterImg={service.afterImage}
-                    alt={service.title}
-                  />
-                </motion.div>
-
-                <motion.div
-                  variants={containerVariants}
-                  className="w-full lg:w-1/2 flex flex-col items-start"
-                >
-                  <motion.h2
-                    variants={itemVariants}
-                    className="text-[#2563eb] text-[24px] md:text-[32px] font-[800] tracking-tight mb-4"
-                  >
-                    {service.title}
-                  </motion.h2>
-                  <motion.p
-                    variants={itemVariants}
-                    className="text-[#6B7280] text-[14px] md:text-[15px] font-medium leading-relaxed mb-8"
-                  >
-                    {service.description}
-                  </motion.p>
-
-                  <motion.ul
-                    variants={containerVariants}
-                    className="flex flex-col gap-3.5 mb-10"
-                  >
-                    {service.features.map((feature, idx) => (
-                      <motion.li
-                        key={idx}
-                        variants={itemVariants}
-                        className="flex items-center gap-3"
-                      >
-                        <FiCheck
-                          className="text-[#2563EB] w-[18px] h-[18px] shrink-0"
-                          strokeWidth={3}
-                        />
-                        <span className="text-[#111827] text-[13px] md:text-[14px] font-bold">
-                          {feature}
-                        </span>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
-                </motion.div>
-              </motion.div>
-            );
-          })}
+          {servicesData.map((service, index) => (
+            <ServiceCard key={service.id} service={service} index={index} />
+          ))}
         </div>
       </section>
 
