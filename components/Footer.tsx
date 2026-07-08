@@ -7,22 +7,22 @@ import { FiLinkedin, FiTwitter, FiInstagram, FiMail } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "@/lib/animation";
 import CraftingCredit from "./CraftingCredit";
+import { brandAssets, contactInfo, SocialMediaUrls } from "@/lib/asset";
 
 const year = new Date().getFullYear();
 
 const globalData = {
-  logo: "/logo/logo.png",
-  companyName: "Foto Perfection Lab",
-  description:
-    "Professional photo editing and retouching services for e-commerce brands, photographers, and studios worldwide.",
-  copyright: `© ${year} Foto Perfection Lab. All rights reserved.`,
+  logo: brandAssets.logo,
+  companyName: brandAssets.name,
+  description: brandAssets.shortDescription,
+  copyright: `© ${year} ${brandAssets.name}. All rights reserved.`,
 };
 
 const socialLinks = [
-  { id: "linkedin", icon: FiLinkedin, url: "https://linkedin.com" },
-  { id: "twitter", icon: FiTwitter, url: "https://twitter.com" },
-  { id: "instagram", icon: FiInstagram, url: "https://instagram.com" },
-  { id: "email", icon: FiMail, url: "mailto:hello@example.com" },
+  { id: "linkedin", icon: FiLinkedin, url: SocialMediaUrls.linkedin },
+  { id: "twitter", icon: FiTwitter, url: SocialMediaUrls.x },
+  { id: "instagram", icon: FiInstagram, url: SocialMediaUrls.instagram },
+  { id: "email", icon: FiMail, url: `mailto:${contactInfo.emailAdmin}` },
 ];
 
 const footerLinks = [

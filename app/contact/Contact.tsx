@@ -1,5 +1,6 @@
 "use client";
 
+import { contactInfo } from "@/lib/asset";
 import React, { useState, useRef } from "react";
 import { FiClock, FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi";
 import { ImSpinner3 } from "react-icons/im";
@@ -8,19 +9,19 @@ const contactInfoData = [
   {
     id: "email",
     title: "Email",
-    detail: "hello@fotoperfectionlab.com",
+    detail: contactInfo.emailAdmin,
     icon: FiMail,
   },
   {
     id: "phone",
     title: "Phone",
-    detail: "+1 (555) 123-4567",
+    detail: contactInfo.phone,
     icon: FiPhone,
   },
   {
     id: "address",
     title: "Address",
-    detail: "123 Creative Lane, Suite 400\nSan Francisco, CA 94102",
+    detail: contactInfo.location,
     icon: FiMapPin,
   },
 ];

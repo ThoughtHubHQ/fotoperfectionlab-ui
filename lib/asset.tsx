@@ -22,9 +22,11 @@ export const SocialMediaUrls = {
 
 export const brandAssets = {
   mainUrl: "https://fotoperfectionlab.com",
-  name: "Foto Perfection Lab - Your Ultimate Destination for Photography Excellence",
+  name: "Foto Perfection Lab",
+  shortDescription: "Professional photo editing and retouching services for e-commerce brands, photographers, and studios worldwide.",
   description:
     "Foto Perfection Lab is a leading provider of high-quality background removal and image editing services, catering to e-commerce businesses, photographers, and creative professionals worldwide. With a commitment to excellence and customer satisfaction, FotoPerfection Lab delivers precise and efficient solutions to enhance the visual appeal of products and images.",
   logo: "/logo/logo.png",
+  icon: "/logo/icon.png",
   SocialMediaPreview: "/logo/logo.png",
 };

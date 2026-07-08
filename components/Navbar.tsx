@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FiArrowRight, FiMenu, FiX } from "react-icons/fi";
 import Link from "next/link";
+import { brandAssets } from "@/lib/asset";
 
 // Mock data array for navigation items
 const navItems = [
@@ -42,7 +43,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="shrink-0 cursor-pointer">
           <Image
-            src="/logo/logo.png"
+            src={brandAssets.logo}
             alt="Logo"
             width={200}
             height={50}
@@ -68,7 +69,7 @@ export default function Navbar() {
           {/* Center Icon */}
           <Link href="/#home" className="px-2">
             <Image
-              src="/logo/icon.png"
+              src={brandAssets.icon}
               alt="Center Icon"
               width={36}
               height={36}
