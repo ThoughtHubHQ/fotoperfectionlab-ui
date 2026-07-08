@@ -69,6 +69,7 @@ export default function Hero() {
 
   return (
     <section
+      id="home"
       className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden
      py-16 lg:py-0 px-4 md:px-8 lg:px-16 2xl:px-0"
     >
@@ -123,8 +124,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-10">
             <button className="group text-white px-8 py-4 font-semibold flex items-center gap-3 text-lg transition-transform hover:scale-105 rounded-3xl bg-[#1D61F2] shadow-[0_25px_50px_-12px_#93C5FD] cursor-pointer">
-              <Link href="/contact" className="flex items-center gap-3" >
-
+              <Link href="/contact" className="flex items-center gap-3">
                 Get My Quotation
                 <span className="bg-white/20 p-1.5 rounded-full group-hover:translate-x-1 transition-transform duration-300">
                   <FaArrowRight className="w-3 h-3" />
