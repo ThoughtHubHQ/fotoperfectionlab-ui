@@ -11,6 +11,7 @@ import {
   FiArrowRight,
 } from "react-icons/fi";
 import { FaBehance } from "react-icons/fa";
+import { brandAssets } from "@/lib/asset";
 
 // Mock Data Arrays
 const foundersData = [
@@ -72,7 +73,7 @@ export default function FoundersAndMission() {
             </h2>
           </div>
           <p className="text-[#6B7280] text-[15px] font-medium mb-8">
-            The visionaries who built Foto Perfection Lab from the ground up.
+            The visionaries who built {brandAssets.name} from the ground up.
           </p>
 
           {/* Founders Cards */}
@@ -173,12 +174,12 @@ export default function FoundersAndMission() {
               </h3>
               <p className="text-[#4B5563] text-[14px] leading-relaxed font-medium mb-4 max-w-3xl">
                 Whether you need a few images retouched or thousands of product
-                photos processed every month, Foto Perfection Lab is ready to
+                photos processed every month, {brandAssets.name} is ready to
                 support your workflow with precision and efficiency.
               </p>
               <p className="text-[#111827] text-[14px] font-bold mb-1">
                 Bring your images to perfection with{" "}
-                <span className="text-[#2563EB]">Foto Perfection Lab.</span>
+                <span className="text-[#2563EB]">{brandAssets.name}.</span>
               </p>
               <p className="text-[#9CA3AF] text-[13px] font-medium">
                 Ready to elevate your images? Contact us today and get a free

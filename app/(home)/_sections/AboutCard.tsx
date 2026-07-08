@@ -8,6 +8,7 @@ import {
   FiUsers,
   FiShield,
 } from "react-icons/fi";
+import { brandAssets } from "@/lib/asset";
 
 // Mock data for the stats grid
 const statsData = [
@@ -44,7 +45,7 @@ export default function AboutCard() {
         {/* Left Column: Text Content & CTA */}
         <div className="w-full lg:w-[55%] flex flex-col items-start text-left">
           <h2 className="text-[#111827] text-4xl md:text-5xl lg:text-[56px] font-[900] tracking-tight leading-[1.1] mb-6">
-            About <span className="text-[#2563EB]">Foto Perfection Lab</span>
+            About <span className="text-[#2563EB]">{brandAssets.name}</span>
           </h2>
 
           <h3 className="text-[#111827] text-lg md:text-[22px] font-bold mb-6">
@@ -53,7 +54,7 @@ export default function AboutCard() {
           </h3>
 
           <p className="text-[#4B5563] text-base md:text-[17px] leading-[1.7] mb-6">
-            At Foto Perfection Lab, we specialize in professional photo editing
+            At {brandAssets.name}, we specialize in professional photo editing
             and retouching services designed for e-commerce brands,
             photographers, studios, and online retailers. Our goal is simple: to
             transform ordinary images into high-quality visuals that enhance

@@ -1,10 +1,11 @@
 import React from "react";
 import { Metadata } from "next";
+import { brandAssets } from "@/lib/asset";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - Foto Perfection Lab",
+  title: `Privacy Policy - ${brandAssets.name}`,
   description:
-    "Read the privacy policy of Foto Perfection Lab. Learn how we collect, use, and strictly protect your personal data and image files.",
+    `Read the privacy policy of ${brandAssets.name}. Learn how we collect, use, and strictly protect your personal data and image files.`,
 };
 
 // Mock Data

@@ -1,10 +1,11 @@
 import React from "react";
 import { Metadata } from "next";
+import { brandAssets } from "@/lib/asset";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions - Foto Perfection Lab",
+  title: `Terms & Conditions - ${brandAssets.name}`,
   description:
-    "Read the terms and conditions for using Foto Perfection Lab's professional photo editing services. Understand your rights, responsibilities, and our service policies.",
+    `Read the terms and conditions for using ${brandAssets.name}'s professional photo editing services. Understand your rights, responsibilities, and our service policies.`,
 };
 
 // Mock Data
@@ -21,7 +22,7 @@ const termsData = [
     id: 1,
     title: "1. Introduction",
     content:
-      "Welcome to Foto Perfection Lab. By accessing our website and using our professional photo editing, retouching, and manipulation services, you agree to comply with and be bound by the following terms and conditions of use.",
+      `Welcome to ${brandAssets.name}. By accessing our website and using our professional photo editing, retouching, and manipulation services, you agree to comply with and be bound by the following terms and conditions of use.`,
   },
   {
     id: 2,
@@ -43,19 +44,19 @@ const termsData = [
     id: 4,
     title: "4. Intellectual Property & Copyright",
     content:
-      "You, the client, retain full copyright and ownership of all original images submitted to us. Foto Perfection Lab claims no ownership over your intellectual property. By submitting images, you grant us a temporary, non-exclusive license solely for the purpose of performing the requested editing services. We will never use your images for our portfolio or marketing without your explicit written consent.",
+      `You, the client, retain full copyright and ownership of all original images submitted to us. ${brandAssets.name} claims no ownership over your intellectual property. By submitting images, you grant us a temporary, non-exclusive license solely for the purpose of performing the requested editing services. We will never use your images for our portfolio or marketing without your explicit written consent.`,
   },
   {
     id: 5,
     title: "5. Payment Terms",
     content:
-      "Pricing is based on image complexity, volume, and requested turnaround time. Quotes provided are valid for 30 days. For new clients, payment may be required upfront or upon approval of watermarked sample edits. Established clients may be eligible for monthly invoicing.",
+      `Pricing is based on image complexity, volume, and requested turnaround time. Quotes provided are valid for 30 days. For new clients, payment may be required upfront or upon approval of watermarked sample edits. Established clients may be eligible for monthly invoicing.`,
   },
   {
     id: 6,
     title: "6. Limitation of Liability",
     content:
-      "While we take every precaution to ensure data security, Foto Perfection Lab shall not be held liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, including but not limited to loss of data, lost profits, or business interruption.",
+      `While we take every precaution to ensure data security, ${brandAssets.name} shall not be held liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, including but not limited to loss of data, lost profits, or business interruption.`,
   },
 ];
 
