@@ -20,7 +20,7 @@ const statsData = [
   },
   {
     id: 2,
-    value: "50K+",
+    value: "5K+",
     label: "Images Edited Daily",
     icon: FiLayers,
   },

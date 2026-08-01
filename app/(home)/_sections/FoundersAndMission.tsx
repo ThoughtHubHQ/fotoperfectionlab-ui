@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  FiFacebook,
   FiLinkedin,
   FiMail,
   FiTarget,
@@ -81,7 +80,7 @@ export default function FoundersAndMission() {
             {foundersData.map((founder) => (
               <div
                 key={founder.id}
-                className="w-full sm:w-[320px] flex flex-col items-center text-center p-4 rounded-[28px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.08)] shadow-[0_8px_40px_0_rgba(41,95,255,0.10),0_2px_12px_0_rgba(0,0,0,0.05)] backdrop-blur-[10px]"
+                className="w-full sm:w-[320px] flex flex-col items-center text-center p-4 rounded-[28px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.08)] shadow-[0_8px_40px_0_rgba(41,95,255,0.10),0_2px_12px_0_rgba(0,0,0,0.05)] backdrop-blur-[10px] hover:scale-105 transition-transform duration-300 hover:border-[rgba(37,99,235,0.40)] hover:shadow-[0_8px_40px_0_rgba(41,95,255,0.20),0_2px_12px_0_rgba(0,0,0,0.10)]"
               >
                 {/* Founder Image */}
                 <div className="w-full aspect-4/5 rounded-[20px] overflow-hidden mb-5 relative bg-[#E1EBFF]">
@@ -91,11 +90,11 @@ export default function FoundersAndMission() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-[rgba(238,242,255,0.8)] via-[rgba(238,242,255,0.05)] to-transparent h-full w-full"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-[rgba(8,35,123,0.8)] via-[rgba(238,242,255,0.05)] to-transparent h-full w-full"></div>
                 </div>
 
                 {/* Info */}
-                <h3 className="text-[#111827] text-[18px] font-bold tracking-tight mb-1 uppercase">
+                <h3 className="text-[#111827] text-[18px] font-bold tracking-tight mb-1 uppercase hover:scale-105 transition-transform duration-300">
                   {founder.name}
                 </h3>
                 <h4 className="text-[#2563EB] text-[13px] font-bold mb-4">
@@ -143,7 +142,7 @@ export default function FoundersAndMission() {
             return (
               <div
                 key={item.id}
-                className="flex flex-col items-start p-8 rounded-[28px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.08)] shadow-[0_4px_20px_0_rgba(41,98,255,0.06),0_1px_4px_0_rgba(0,0,0,0.03)] backdrop-blur-[10px]"
+                className="flex flex-col items-start p-8 rounded-[28px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.08)] shadow-[0_4px_20px_0_rgba(41,98,255,0.06),0_1px_4px_0_rgba(0,0,0,0.03)] backdrop-blur-[10px] hover:scale-105 transition-transform duration-300 hover:border-[rgba(37,99,235,0.40)] hover:shadow-[0_4px_20px_0_rgba(41,98,255,0.12),0_1px_4px_0_rgba(0,0,0,0.06)]"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="shrink-0 w-12 h-12 rounded-full bg-[linear-gradient(135deg,#3B82F6_0%,#1D4ED8_100%)] shadow-[0_8px_24px_0_rgba(41,98,255,0.30)] flex items-center justify-center text-white">
@@ -162,7 +161,7 @@ export default function FoundersAndMission() {
         </div>
 
         {/* LET'S WORK TOGETHER */}
-        <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-8 md:p-10 rounded-4xl border border-[rgba(37,99,235,0.70)] bg-[rgba(37,99,235,0.08)] shadow-[inset_0_4px_4px_0_rgba(255,255,255,0.50)] backdrop-blur-[10px]">
+        <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-8 md:p-10 rounded-4xl border border-[rgba(37,99,235,0.70)] bg-[rgba(37,99,235,0.08)] shadow-[inset_0_4px_4px_0_rgba(255,255,255,0.50)] backdrop-blur-[10px] hover:scale-105 transition-transform duration-300 hover:border-[rgba(37,99,235,0.90)] hover:shadow-[inset_0_4px_4px_0_rgba(255,255,255,0.70)]">
           <div className="flex gap-5 flex-1">
             <div className="shrink-0 w-14 h-14 rounded-full bg-[linear-gradient(135deg,#3B82F6_0%,#1D4ED8_100%)] shadow-[0_8px_24px_0_rgba(41,98,255,0.30)] flex items-center justify-center text-white mt-1">
               <FiBriefcase className="w-6 h-6" strokeWidth={2.5} />

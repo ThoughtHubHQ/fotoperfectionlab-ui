@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-// Mock Data updated with EUR prices
 const pricingPlans = [
   {
     id: "basic",
@@ -35,19 +34,9 @@ const pricingFeatures = [
     pricesEur: { basic: "€0.45", standard: "€0.95", premium: "€2.35" },
   },
   {
-    name: "Multi Clipping Path",
-    pricesUsd: { basic: "$1.00", standard: "$2.00", premium: "$3.00" },
-    pricesEur: { basic: "€0.95", standard: "€1.90", premium: "€2.85" },
-  },
-  {
-    name: "Background removal",
+    name: "Background Removal",
     pricesUsd: { basic: "$0.49", standard: "$0.75", premium: "$1.49" },
     pricesEur: { basic: "€0.45", standard: "€0.70", premium: "€1.40" },
-  },
-  {
-    name: "Image Masking",
-    pricesUsd: { basic: "$0.60", standard: "$1.05", premium: "$1.50" },
-    pricesEur: { basic: "€0.55", standard: "€1.00", premium: "€1.40" },
   },
   {
     name: "Shadow Creation",
@@ -55,9 +44,34 @@ const pricingFeatures = [
     pricesEur: { basic: "€0.70", standard: "€0.90", premium: "€1.40" },
   },
   {
+    name: "Image Masking",
+    pricesUsd: { basic: "$0.60", standard: "$1.05", premium: "$1.50" },
+    pricesEur: { basic: "€0.55", standard: "€1.00", premium: "€1.40" },
+  },
+  {
     name: "Photo Retouching",
     pricesUsd: { basic: "$1.00", standard: "$1.50", premium: "$2.00" },
     pricesEur: { basic: "€0.95", standard: "€1.40", premium: "€1.90" },
+  },
+  {
+    name: "Jewellery Retouching",
+    pricesUsd: { basic: "$1.50", standard: "$2.50", premium: "$4.00" },
+    pricesEur: { basic: "€1.40", standard: "€2.35", premium: "€3.75" },
+  },
+  {
+    name: "Ghost Mannequin",
+    pricesUsd: { basic: "$0.80", standard: "$1.29", premium: "$2.00" },
+    pricesEur: { basic: "€0.75", standard: "€1.20", premium: "€1.90" },
+  },
+  {
+    name: "Apparel Editing",
+    pricesUsd: { basic: "$0.70", standard: "$1.10", premium: "$1.80" },
+    pricesEur: { basic: "€0.65", standard: "€1.05", premium: "€1.70" },
+  },
+  {
+    name: "E-commerce Photo Editing",
+    pricesUsd: { basic: "$0.55", standard: "$0.75", premium: "$1.10" },
+    pricesEur: { basic: "€0.50", standard: "€0.70", premium: "€1.05" },
   },
   {
     name: "Color Correction",
@@ -65,19 +79,59 @@ const pricingFeatures = [
     pricesEur: { basic: "€0.85", standard: "€1.20", premium: "€1.80" },
   },
   {
-    name: "Ghost Mannequin Effect",
-    pricesUsd: { basic: "$0.80", standard: "$1.29", premium: "$2.00" },
-    pricesEur: { basic: "€0.75", standard: "€1.20", premium: "€1.90" },
+    name: "Real Estate Photo Editing",
+    pricesUsd: { basic: "$1.20", standard: "$2.00", premium: "$3.50" },
+    pricesEur: { basic: "€1.10", standard: "€1.90", premium: "€3.30" },
   },
   {
-    name: "eCommerce Image Editing",
-    pricesUsd: { basic: "$0.55", standard: "$0.75", premium: "$1.10" },
-    pricesEur: { basic: "€0.50", standard: "€0.70", premium: "€1.05" },
+    name: "Food Retouching",
+    pricesUsd: { basic: "$1.00", standard: "$1.80", premium: "$3.00" },
+    pricesEur: { basic: "€0.95", standard: "€1.70", premium: "€2.85" },
+  },
+  {
+    name: "Headshot & Portrait Retouching",
+    pricesUsd: { basic: "$1.50", standard: "$2.50", premium: "$4.50" },
+    pricesEur: { basic: "€1.40", standard: "€2.35", premium: "€4.25" },
+  },
+  {
+    name: "Baby Photo Retouching",
+    pricesUsd: { basic: "$1.00", standard: "$2.00", premium: "$3.50" },
+    pricesEur: { basic: "€0.95", standard: "€1.90", premium: "€3.30" },
+  },
+  {
+    name: "Beauty Retouching",
+    pricesUsd: { basic: "$2.00", standard: "$3.50", premium: "$6.00" },
+    pricesEur: { basic: "€1.90", standard: "€3.30", premium: "€5.70" },
+  },
+  {
+    name: "Model Retouching",
+    pricesUsd: { basic: "$2.50", standard: "$4.00", premium: "$7.00" },
+    pricesEur: { basic: "€2.35", standard: "€3.80", premium: "€6.65" },
+  },
+  {
+    name: "AI Photo Editing",
+    pricesUsd: { basic: "$0.50", standard: "$1.00", premium: "$2.00" },
+    pricesEur: { basic: "€0.45", standard: "€0.95", premium: "€1.90" },
+  },
+  {
+    name: "Photo Restoration",
+    pricesUsd: { basic: "$3.00", standard: "$6.00", premium: "$10.00" },
+    pricesEur: { basic: "€2.85", standard: "€5.70", premium: "€9.50" },
+  },
+  {
+    name: "Photo Manipulation",
+    pricesUsd: { basic: "$4.00", standard: "$8.00", premium: "$15.00" },
+    pricesEur: { basic: "€3.80", standard: "€7.60", premium: "€14.25" },
+  },
+  {
+    name: "Photo Colorization",
+    pricesUsd: { basic: "$2.00", standard: "$4.00", premium: "$7.00" },
+    pricesEur: { basic: "€1.90", standard: "€3.80", premium: "€6.65" },
   },
 ];
 
 export default function Pricing() {
-  const [currency, setCurrency] = useState<"USD" | "EUR">("USD");
+  const [currency, setCurrency] = useState("USD");
 
   return (
     <section className="w-full pt-25 lg:pt-40 bg-transparent">

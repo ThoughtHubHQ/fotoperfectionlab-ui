@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { LuClock, LuUsers, LuShieldCheck, LuMail } from "react-icons/lu";
 import { containerVariants, itemVariants } from "@/lib/animation";
@@ -48,6 +48,7 @@ export default function CoreAdvantages() {
   return (
     <section className="w-full py-16 md:py-24">
       <div className="max-w-360 mx-auto px-4 md:px-8 xl:px-16 2xl:px-0">
+        
         {/* Section Header */}
         <motion.div
           variants={itemVariants}
@@ -59,13 +60,27 @@ export default function CoreAdvantages() {
           <span className="text-[#2563EB] text-[11px] font-bold tracking-[1.54px] uppercase mb-4">
             CORE ADVANTAGES
           </span>
-          <h2 className="text-[#111827] text-3xl md:text-4xl lg:text-[40px] font-[800] leading-tight mb-4">
+          
+          <h2 className="text-[#111827] text-3xl md:text-4xl lg:text-[40px] font-extrabold leading-tight mb-4">
             <span className="text-[#1D61F2]">Why Global Brands</span> Trust Us
           </h2>
-          <p className="text-[#6B7280] text-sm md:text-[15px] font-medium max-w-2xl">
+          
+          <p className="text-[#6B7280] text-sm md:text-[15px] font-medium max-w-2xl mb-8">
             Replicating standard production lines with guaranteed file privacy
             and priority speeds.
           </p>
+
+          {/* Re-positioned Free Sample Edit CTA */}
+       <Link href="/contact">
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#1D61F2]/20 bg-[#1D61F2] text-white transition-all duration-300 cursor-pointer group hover:scale-105 shadow-2xl">
+            <span className="text-xs md:text-base font-medium">
+              Explore our Quality with <strong className="font-extrabold">a FREE Sample Edit</strong>
+            </span>
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </div>
+       </Link>
         </motion.div>
 
         {/* Features Grid */}
@@ -95,7 +110,7 @@ export default function CoreAdvantages() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-[#111827] text-[13px] md:text-[14px] font-[800] uppercase tracking-wide mb-4">
+                <h3 className="text-[#111827] text-[13px] md:text-[14px] font-extrabold uppercase tracking-wide mb-4">
                   {advantage.title}
                 </h3>
                 <p className="text-[#6B7280] text-[13px] leading-[1.6] md:leading-[1.7]">

@@ -10,6 +10,7 @@ import {
   itemVariants,
   imageVariants,
 } from "@/lib/animation";
+import { BsArrowRight } from "react-icons/bs";
 
 const servicesData = [
   {
@@ -334,7 +335,6 @@ const servicesData = [
   },
 ];
 
-// Added onPosChange prop to handle touch events specific to the image
 const BeforeAfterImage = ({
   beforeImg,
   afterImg,
@@ -350,7 +350,6 @@ const BeforeAfterImage = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Mobile Touch Support isolated to the image
   const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!containerRef.current || !onPosChange) return;
     const { left, width } = containerRef.current.getBoundingClientRect();
@@ -368,7 +367,6 @@ const BeforeAfterImage = ({
       onTouchStart={handleTouch}
       onTouchMove={handleTouch}
       onTouchEnd={handleTouchEnd}
-      // Added touch-pan-y here so vertical scrolling works smoothly over the image on mobile
       className="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden select-none bg-[#DCE7FF] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05)] touch-pan-y"
     >
       <Image
@@ -431,7 +429,6 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
   const [sliderPos, setSliderPos] = useState(50);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Desktop Mouse Support (Applies to the whole card)
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const { left, width } = cardRef.current.getBoundingClientRect();
@@ -443,6 +440,7 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
 
   return (
     <motion.div
+      id={`service-${service.id}`}
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleReset}
@@ -450,10 +448,9 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
       whileInView="show"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
-      // Removed touch events from the main card container
       className={`w-full flex flex-col ${
         isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-      } gap-8 lg:gap-16 items-center p-6 md:p-10 lg:p-12 rounded-[28px] bg-[#EBF2FF] relative`}
+      } gap-8 lg:gap-16 items-center p-6 md:p-10 lg:p-12 rounded-[28px] bg-[#EBF2FF] relative scroll-mt-24`}
     >
       <motion.div variants={imageVariants} className="w-full lg:w-1/2 shrink-0">
         <BeforeAfterImage
@@ -502,12 +499,25 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
             </motion.li>
           ))}
         </motion.ul>
+        <Link
+          href="/contact"
+          className="bg-[#2563EB] text-white py-3 px-6 rounded-lg font-bold hover:bg-[#1d4ed8] flex items-center gap-2 text-[14px] md:text-[15px] hover:shadow-2xl hover:scale-[1.05] active:scale-[0.95] transition-all duration-300 w-full md:w-auto justify-center md:justify-start text-center"
+        >
+          Get a Free Trial <BsArrowRight />
+        </Link>
       </motion.div>
     </motion.div>
   );
 };
 
 export default function Services() {
+  const scrollToService = (id: number) => {
+    document.getElementById(`service-${id}`)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div className="w-full flex flex-col bg-transparent">
       {/* Header Section */}
@@ -542,6 +552,34 @@ export default function Services() {
           </motion.p>
         </div>
       </motion.section>
+
+      {/* Navigation Tabs (Table Style) */}
+      <section className="w-full mb-16">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-8 xl:px-10 2xl:px-0">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={containerVariants}
+            className="w-full rounded-3xl md:rounded-4xl border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.03)] overflow-hidden shadow-[0_4px_40px_0_rgba(41,98,255,0.03)]"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {servicesData.map((service) => (
+                <motion.button
+                  key={service.id}
+                  variants={itemVariants}
+                  onClick={() => scrollToService(service.id)}
+                  className="group flex items-center justify-center text-center h-full p-4 lg:p-5 bg-transparent hover:bg-[rgba(37,99,235,0.06)] transition-colors duration-300 border-[rgba(175,189,220,0.15)] border cursor-pointer"
+                >
+                  <span className="text-[#111827] text-[12px] md:text-[14px] font-semibold leading-snug">
+                    {service.title}
+                  </span>
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Services List Section */}
       <section className="w-full pb-16 lg:pb-24">
