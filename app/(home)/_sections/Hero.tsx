@@ -123,7 +123,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-10">
-            <button className="group text-white px-8 py-4 font-semibold flex items-center gap-3 text-lg transition-transform hover:scale-105 rounded-3xl bg-[#1D61F2] shadow-[0_25px_50px_-12px_#93C5FD] cursor-pointer">
+            <button className="group text-white px-8 py-4 font-semibold flex items-center gap-3 text-lg transition-transform hover:scale-105 rounded-3xl bg-[#1D61F2] shadow-[0_25px_50px_-12px_#93C5FD] cursor-pointer w-full md:w-auto">
               <Link href="/contact" className="flex items-center gap-3">
                 Get My Quotation
                 <span className="bg-white/20 p-1.5 rounded-full group-hover:translate-x-1 transition-transform duration-300">
