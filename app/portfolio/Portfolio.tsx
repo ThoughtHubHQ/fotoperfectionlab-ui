@@ -22,7 +22,7 @@ const portfolioData = [
     id: "shadow-creation",
     prefix: "Shadow",
     highlight: "Creation",
-    aspect: "aspect-[3/2]",
+    aspect: "aspect-[3/2.5]",
     images: [
       "/portfolio/shadow/High-end retouching service for ecommerce brands, catalogs, and advertising (1).jpg",
       "/portfolio/shadow/High-end retouching service for ecommerce brands, catalogs, and advertising (2).jpg",
@@ -34,7 +34,7 @@ const portfolioData = [
     id: "image-masking",
     prefix: "Image",
     highlight: "Masking",
-    aspect: "aspect-[3/2]",
+    aspect: "aspect-[3/2.5]",
     images: [
       "/portfolio/masking/professional-image-masking-fotoperfectionlab (1).jpg",
       "/portfolio/masking/professional-image-masking-fotoperfectionlab (2).jpg",
@@ -46,7 +46,7 @@ const portfolioData = [
     id: "photo-retouching",
     prefix: "Photo",
     highlight: "Retouching",
-    aspect: "aspect-[3/2]",
+    aspect: "aspect-[3/2.5]",
     images: [
       "/portfolio/photo-retouching/professional-image-editing-retouching-service-fotoperfectionlab (1).jpg",
       "/portfolio/photo-retouching/professional-image-editing-retouching-service-fotoperfectionlab (01).jpg",
@@ -62,7 +62,7 @@ const portfolioData = [
     id: "jewellery-retouching",
     prefix: "Jewellery",
     highlight: "Retouching",
-    aspect: "aspect-[3/2]",
+    aspect: "aspect-[3/2.5]",
     images: [
       "/portfolio/jewellery-retouching/E-commerce Jewelry Photo Editing (1).jpg",
       "/portfolio/jewellery-retouching/E-commerce Jewelry Photo Editing (2).jpg",
@@ -74,7 +74,7 @@ const portfolioData = [
     id: "ghost-mannequin",
     prefix: "Ghost",
     highlight: "Mannequin",
-    aspect: "aspect-[3/2]",
+    aspect: "aspect-[3/2.5]",
     images: [
       "/portfolio/ghost/Professional-Ghost-Mannequin-Editing-(1).jpg",
       "/portfolio/ghost/Professional-Ghost-Mannequin-Editing-(2).jpg",
@@ -86,7 +86,7 @@ const portfolioData = [
     id: "ecommerce-editing",
     prefix: "E-commerce Photo",
     highlight: "Editing",
-    aspect: "aspect-[3/2]",
+    aspect: "aspect-[3/2.5]",
     images: [
       "/portfolio/ecommerce-photo-editing/professional-image-editing-retouching-service-fotoperfectionlab (2).jpg",
       "/portfolio/ecommerce-photo-editing/professional-image-editing-retouching-service-fotoperfectionlab (3).jpg",
@@ -102,7 +102,7 @@ const portfolioData = [
     id: "real-estate",
     prefix: "Real Estate Photo",
     highlight: "Editing",
-    aspect: "aspect-[3/2]",
+    aspect: "aspect-[3/2.5]",
     images: [
       "/portfolio/realstate-photo-editing/Real-Estate-Photo-Editing-Service-(1).jpg",
       "/portfolio/realstate-photo-editing/Real-Estate-Photo-Editing-Service-(2).jpg",
@@ -118,7 +118,7 @@ const portfolioData = [
     id: "food-retouching",
     prefix: "Food",
     highlight: "Retouching",
-    aspect: "aspect-[3/2]",
+    aspect: "aspect-[3/2.5]",
     images: [
       "/portfolio/food-retouching/Food Product Retouching Service (1).jpg",
       "/portfolio/food-retouching/Food Product Retouching Service (2).jpg",
@@ -132,7 +132,7 @@ const portfolioData = [
     id: "headshot-portrait",
     prefix: "Headshot & Portrait",
     highlight: "Retouching",
-    aspect: "aspect-[7/9]",
+    aspect: "aspect-[2/3]",
     images: [
       "/portfolio/headshot-retouching/Corporate Headshot Editing Portrait Retouching (1).jpg",
       "/portfolio/headshot-retouching/Corporate Headshot Editing Portrait Retouching (2).jpg",
@@ -144,7 +144,7 @@ const portfolioData = [
     id: "baby-photo",
     prefix: "Baby Photo",
     highlight: "Retouching",
-    aspect: "aspect-[6/5]",
+    aspect: "aspect-[3/2.5]",
     images: [
       "/portfolio/baby-retouching/Baby Photo Retouching Service, Newborn Photo Editing (1).jpg",
       "/portfolio/baby-retouching/Baby Photo Retouching Service, Newborn Photo Editing (2).jpg",
@@ -156,7 +156,7 @@ const portfolioData = [
     id: "model-retouching",
     prefix: "Model",
     highlight: "Retouching",
-    aspect: "aspect-[7/9]",
+    aspect: "aspect-[2/3]",
     images: [
       "/portfolio/model-retouching/Professional Model Photo Editing & Retouching (1).jpg",
       "/portfolio/model-retouching/Professional Model Photo Editing & Retouching (2).jpg",
