@@ -17,7 +17,7 @@ const sectionHeader = {
 const servicesData = [
   {
     id: 1,
-    title: "Clipping Path Service",
+    title: "Clipping Path",
     description:
       "Clipping path service allows removing the unwanted objects background from photos. You can also do color separation using clipping path. We provide a manual clipping path service using adobe photoshop. Pricing may vary depending on image complexity but is very competitive.",
     features: [
@@ -27,96 +27,107 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/founders/founder1.jpg",
-    afterImage: "/founders/founder2.jpg",
+    beforeImage: "/services/clipping-path/CP-Before.jpg",
+    afterImage: "/services/clipping-path/CP-After.jpg",
     link: "/services/clipping-path",
   },
   {
     id: 2,
     title: "Background Removal",
     description:
-      "Clipping path service allows removing the unwanted objects background from photos. You can also do color separation using clipping path. We provide a manual clipping path service using adobe photoshop. Pricing may vary depending on image complexity but is very competitive.",
+      "Instantly upgrade your product presentation by replacing distracting backgrounds with pure white or transparent backdrops, perfectly optimized for Amazon, Shopify, and eBay.",
     features: [
-      "Hand-made clipping path vectors",
-      "Pricing depends on image complexity",
-      "Up to 50% discount on bulk order",
+      "Pure white or transparent BG",
+      "Amazon & Shopify compliant",
+      "Smooth edge refinement",
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/founders/founder1.jpg",
-    afterImage: "/founders/founder2.jpg",
+    beforeImage: "/services/bg-removal/BG-Removal-Before.jpg",
+    afterImage: "/services/bg-removal/BG-Removal-After.jpg",
     link: "/services/background-removal",
   },
   {
     id: 3,
-    title: "Image Masking Service",
-    description:
-      "Clipping path service allows removing the unwanted objects background from photos. You can also do color separation using clipping path. We provide a manual clipping path service using adobe photoshop. Pricing may vary depending on image complexity but is very competitive.",
-    features: [
-      "Hand-made clipping path vectors",
-      "Pricing depends on image complexity",
-      "Up to 50% discount on bulk order",
-      "Fast delivery within 24 hours",
-      "24/7 customer support",
-    ],
-    beforeImage: "/founders/founder1.jpg",
-    afterImage: "/founders/founder2.jpg",
-    link: "/services/image-masking",
-  },
-  {
-    id: 4,
     title: "Shadow Creation",
     description:
-      "Clipping path service allows removing the unwanted objects background from photos. You can also do color separation using clipping path. We provide a manual clipping path service using adobe photoshop. Pricing may vary depending on image complexity but is very competitive.",
+      "Add depth and realism to flat product images with custom drop shadows, natural shadows, or reflections. Creates a 3D effect that increases perceived product value.",
     features: [
-      "Hand-made clipping path vectors",
-      "Pricing depends on image complexity",
-      "Up to 50% discount on bulk order",
+      "Drop, natural, & reflection shadows",
+      "Realistic 3D depth addition",
+      "Consistent lighting angles",
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/founders/founder1.jpg",
-    afterImage: "/founders/founder2.jpg",
+    beforeImage: "/services/shadow-creation/Shadow-Before.jpg",
+    afterImage: "/services/shadow-creation/Shadow-After.jpg",
     link: "/services/shadow-creation",
   },
   {
-    id: 5,
-    title: "Ghost Mannequin Effect",
+    id: 4,
+    title: "Image Masking",
     description:
-      "This item will not show on the homepage because we slice the array to 4 items.",
-    features: ["Feature 1", "Feature 2"],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
-    link: "/services/ghost-mannequin",
+      "Advanced image masking for complex subjects like hair, fur, or translucent objects where standard clipping paths fall short. Ensures natural, soft edges on any background.",
+    features: [
+      "Alpha channel masking",
+      "Hair and fur detailing",
+      "Translucent object masking",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/image-masking/Masking-Before.jpg",
+    afterImage: "/services/image-masking/Masking-After.jpg",
+    link: "/services/image-masking",
+  },
+  {
+    id: 5,
+    title: "Photo Retouching",
+    description:
+      "High-end retouching to clean up dust, scratches, glares, and imperfections. Enhances the overall aesthetic while maintaining natural textures and materials.",
+    features: [
+      "Dust and scratch removal",
+      "Texture preservation",
+      "Highlight and glare adjustment",
+      "Fast delivery within 24 hours",
+      "24/7 customer support",
+    ],
+    beforeImage: "/services/photo-retouching/Photo-Retouching-Before.jpg",
+    afterImage: "/services/photo-retouching/Photo-Retouching-After.jpg",
+    link: "/services/photo-retouching",
   },
 ];
 
-// Added onPosChange prop to handle touch events specific to the image
 const BeforeAfterImage = ({
   beforeImg,
   afterImg,
   alt,
-  sliderPos,
-  onPosChange,
 }: {
   beforeImg: string;
   afterImg: string;
   alt: string;
-  sliderPos: number;
-  onPosChange?: (pos: number) => void;
 }) => {
+  // State moved inside the image component
+  const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Mobile Touch Support isolated to the image
-  const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (!containerRef.current || !onPosChange) return;
+  // Consolidated movement logic for both mouse and touch
+  const handleMove = (clientX: number) => {
+    if (!containerRef.current) return;
     const { left, width } = containerRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(e.touches[0].clientX - left, width));
-    onPosChange((x / width) * 100);
+    const x = Math.max(0, Math.min(clientX - left, width));
+    setSliderPos((x / width) * 100);
   };
 
-  const handleTouchEnd = () => {
-    if (onPosChange) onPosChange(50);
+  const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
+    handleMove(e.touches[0].clientX);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    handleMove(e.clientX);
+  };
+
+  const handleReset = () => {
+    setSliderPos(50);
   };
 
   return (
@@ -124,8 +135,9 @@ const BeforeAfterImage = ({
       ref={containerRef}
       onTouchStart={handleTouch}
       onTouchMove={handleTouch}
-      onTouchEnd={handleTouchEnd}
-      // Added touch-pan-y here so scrolling works flawlessly over the image
+      onTouchEnd={handleReset}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleReset}
       className="relative w-full aspect-4/3 rounded-[20px] overflow-hidden select-none bg-[#DCE7FF] touch-pan-y"
     >
       {/* After Image (Background layer) */}
@@ -190,25 +202,11 @@ const BeforeAfterImage = ({
 
 const ServiceCard = ({ service, index }: { service: any; index: number }) => {
   const isEven = index % 2 === 0;
-  const [sliderPos, setSliderPos] = useState(50);
-  const cardRef = useRef<HTMLDivElement>(null);
 
-  // Desktop Mouse Support (Applies to the whole card)
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const { left, width } = cardRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(e.clientX - left, width));
-    setSliderPos((x / width) * 100);
-  };
-
-  const handleReset = () => setSliderPos(50);
+  // Removed state and mouse events from the main card container
 
   return (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleReset}
-      // Removed touch events from the main card container
       className={`w-full flex flex-col ${
         isEven ? "lg:flex-row" : "lg:flex-row-reverse"
       } gap-8 lg:gap-16 items-center p-6 md:p-10 lg:p-12 rounded-[28px] bg-[#EBF2FF] relative`}
@@ -219,8 +217,6 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
           beforeImg={service.beforeImage}
           afterImg={service.afterImage}
           alt={service.title}
-          sliderPos={sliderPos}
-          onPosChange={setSliderPos}
         />
       </div>
 
