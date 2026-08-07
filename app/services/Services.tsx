@@ -25,8 +25,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/cp1.jpg",
-    afterImage: "/services/cp2.jpg",
+    beforeImage: "/services/clipping-path/CP-Before.jpg.jpg",
+    afterImage: "/services/clipping-path/CP-After.jpg.jpg",
     link: "/services/clipping-path",
   },
   {
@@ -41,8 +41,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
+    beforeImage: "/services/bg-removal/BG-Removal-Before.gif",
+    afterImage: "/services/bg-removal/BG-Removal-After.gif",
     link: "/services/background-removal",
   },
   {
@@ -57,8 +57,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
+    beforeImage: "/services/shadow-creation/Shadow-Before.gif",
+    afterImage: "/services/shadow-creation/Shadow-After.gif",
     link: "/services/shadow-creation",
   },
   {
@@ -73,8 +73,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
+    beforeImage: "/services/masking/Masking-Before.gif",
+    afterImage: "/services/masking/Masking-After.gif",
     link: "/services/image-masking",
   },
   {
@@ -121,8 +121,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
+    beforeImage: "/services/ghost/Ghost-Before.gif",
+    afterImage: "/services/ghost/Ghost-After.gif",
     link: "/services/ghost-mannequin",
   },
   {
@@ -339,26 +339,33 @@ const BeforeAfterImage = ({
   beforeImg,
   afterImg,
   alt,
-  sliderPos,
-  onPosChange,
 }: {
   beforeImg: string;
   afterImg: string;
   alt: string;
-  sliderPos: number;
-  onPosChange?: (pos: number) => void;
 }) => {
+  // Moved the state inside the Image component
+  const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (!containerRef.current || !onPosChange) return;
+  // Consolidated movement logic
+  const handleMove = (clientX: number) => {
+    if (!containerRef.current) return;
     const { left, width } = containerRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(e.touches[0].clientX - left, width));
-    onPosChange((x / width) * 100);
+    const x = Math.max(0, Math.min(clientX - left, width));
+    setSliderPos((x / width) * 100);
   };
 
-  const handleTouchEnd = () => {
-    if (onPosChange) onPosChange(50);
+  const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
+    handleMove(e.touches[0].clientX);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    handleMove(e.clientX);
+  };
+
+  const handleReset = () => {
+    setSliderPos(50);
   };
 
   return (
@@ -366,7 +373,9 @@ const BeforeAfterImage = ({
       ref={containerRef}
       onTouchStart={handleTouch}
       onTouchMove={handleTouch}
-      onTouchEnd={handleTouchEnd}
+      onTouchEnd={handleReset}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleReset}
       className="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden select-none bg-[#DCE7FF] shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05)] touch-pan-y"
     >
       <Image
@@ -426,24 +435,12 @@ const BeforeAfterImage = ({
 
 const ServiceCard = ({ service, index }: { service: any; index: number }) => {
   const isEven = index % 2 === 0;
-  const [sliderPos, setSliderPos] = useState(50);
-  const cardRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const { left, width } = cardRef.current.getBoundingClientRect();
-    const x = Math.max(0, Math.min(e.clientX - left, width));
-    setSliderPos((x / width) * 100);
-  };
-
-  const handleReset = () => setSliderPos(50);
+  // Removed sliderPos state and mouse handlers from the main card container
 
   return (
     <motion.div
       id={`service-${service.id}`}
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleReset}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-100px" }}
@@ -457,8 +454,6 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
           beforeImg={service.beforeImage}
           afterImg={service.afterImage}
           alt={service.title}
-          sliderPos={sliderPos}
-          onPosChange={setSliderPos}
         />
       </motion.div>
 
@@ -501,7 +496,7 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
         </motion.ul>
         <Link
           href="/contact"
-          className="bg-[#2563EB] text-white py-3 px-6 rounded-lg font-bold hover:bg-[#1d4ed8] flex items-center gap-2 text-[14px] md:text-[15px] hover:shadow-2xl hover:scale-[1.05] active:scale-[0.95] transition-all duration-300 w-full md:w-auto justify-center md:justify-start text-center"
+          className="bg-[#2563EB] text-white py-3 px-6 rounded-lg font-bold hover:bg-[#1d4ed8] flex items-center gap-2 text-[14px] md:text-[15px] hover:shadow-2xl hover:scale-[1.05] active:scale-[0.95] transition-all duration-300 w-full md:w-auto md:self-end justify-center text-center"
         >
           Get a Free Trial <BsArrowRight />
         </Link>

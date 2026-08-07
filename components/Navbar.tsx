@@ -67,7 +67,7 @@ export default function Navbar() {
           ))}
 
           {/* Center Icon */}
-          <Link href="/#home" className="px-2">
+          <Link href="/#" className="px-2">
             <Image
               src={brandAssets.icon}
               alt="Center Icon"

@@ -26,7 +26,7 @@ const statsData = [
   },
   {
     id: 3,
-    value: "500+",
+    value: "100+",
     label: "Clients Worldwide",
     icon: FiUsers,
   },

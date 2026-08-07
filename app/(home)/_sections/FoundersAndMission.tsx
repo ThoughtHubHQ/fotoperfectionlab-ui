@@ -76,36 +76,43 @@ export default function FoundersAndMission() {
           </p>
 
           {/* Founders Cards */}
-          <div className="flex flex-col sm:flex-row gap-6">
+          {/* Added items-stretch to align card heights perfectly */}
+          <div className="flex flex-col sm:flex-row gap-6 items-stretch">
             {foundersData.map((founder) => (
               <div
                 key={founder.id}
                 className="w-full sm:w-[320px] flex flex-col items-center text-center p-4 rounded-[28px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.08)] shadow-[0_8px_40px_0_rgba(41,95,255,0.10),0_2px_12px_0_rgba(0,0,0,0.05)] backdrop-blur-[10px] hover:scale-105 transition-transform duration-300 hover:border-[rgba(37,99,235,0.40)] hover:shadow-[0_8px_40px_0_rgba(41,95,255,0.20),0_2px_12px_0_rgba(0,0,0,0.10)]"
               >
                 {/* Founder Image */}
-                <div className="w-full aspect-4/5 rounded-[20px] overflow-hidden mb-5 relative bg-[#E1EBFF]">
+                <div className="w-full aspect-4/5 rounded-[20px] overflow-hidden mb-5 relative bg-[#E1EBFF] shrink-0">
+                  {/* Replaced fill with width/height */}
                   <Image
                     src={founder.image}
                     alt={founder.name}
-                    fill
-                    className="object-cover"
+                    width={320}
+                    height={400}
+                    className="object-cover w-full h-full"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[rgba(8,35,123,0.8)] via-[rgba(238,242,255,0.05)] to-transparent h-full w-full"></div>
                 </div>
 
                 {/* Info */}
-                <h3 className="text-[#111827] text-[18px] font-bold tracking-tight mb-1 uppercase hover:scale-105 transition-transform duration-300">
-                  {founder.name}
-                </h3>
-                <h4 className="text-[#2563EB] text-[13px] font-bold mb-4">
-                  {founder.role}
-                </h4>
-                <p className="text-[#6B7280] text-[13px] leading-snug font-medium mb-6 px-2">
-                  {founder.description}
-                </p>
+                {/* Added flex-1 and flex-col to force this container to absorb extra space */}
+                <div className="flex flex-col flex-1 w-full">
+                  <h3 className="text-[#111827] text-[18px] font-bold tracking-tight mb-1 uppercase hover:scale-105 transition-transform duration-300">
+                    {founder.name}
+                  </h3>
+                  <h4 className="text-[#2563EB] text-[13px] font-bold mb-4">
+                    {founder.role}
+                  </h4>
+                  <p className="text-[#6B7280] text-[13px] leading-snug font-medium mb-6 px-2">
+                    {founder.description}
+                  </p>
+                </div>
 
                 {/* Social Links */}
-                <div className="flex items-center gap-3 mb-2">
+                {/* Added mt-auto to push the social links evenly to the bottom of every card */}
+                <div className="flex items-center justify-center gap-3 mb-2 mt-auto w-full">
                   <Link
                     href={founder.socials.behance}
                     target="_blank"
