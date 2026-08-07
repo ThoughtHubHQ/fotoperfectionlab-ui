@@ -17,10 +17,10 @@ import Link from "next/link";
 const heroSlides = [
   {
     id: 1,
-    title: "JEWELRY RETOUCH",
+    title: "JEWELLERY RETOUCH",
     subtitle: "Color, Light, Exposure",
     icon: RiDiamondRingLine,
-    photo: "/hero/heroSlide1.jpg",
+    photo: "/hero/Jewellery-Retouching.jpg",
     slotText: "Premium Quality",
   },
   {
@@ -28,7 +28,7 @@ const heroSlides = [
     title: "OBJECT REMOVE",
     subtitle: "Clean Background & Unwanted Object",
     icon: LuWand,
-    photo: "/hero/heroSlide2.jpg",
+    photo: "/hero/Product-Retouch.jpg",
     slotText: "Pixel-Perfect Editing",
   },
   {
@@ -36,7 +36,7 @@ const heroSlides = [
     title: "HIGH-END RETOUCH",
     subtitle: "Beauty, Fashion & Commercial",
     icon: LuSparkle,
-    photo: "/hero/heroSlide3.jpg",
+    photo: "/hero/High-End-Retouch.jpg",
     slotText: "100% Satisfaction",
   },
   {
@@ -44,7 +44,7 @@ const heroSlides = [
     title: "COLOR CORRECTION",
     subtitle: "Natural & Vibrant Look",
     icon: LuPalette,
-    photo: "/hero/heroSlide4.jpg",
+    photo: "/hero/Color-Correction.jpg",
     slotText: "Reliable Service",
   },
   {
@@ -52,7 +52,7 @@ const heroSlides = [
     title: "SKIN RETOUCH",
     subtitle: "Smooth & Blemish Remove",
     icon: LuImage,
-    photo: "/hero/heroSlide5.jpg",
+    photo: "/hero/Skin-Retouch.jpg",
     slotText: "On-Time Delivery",
   },
 ];

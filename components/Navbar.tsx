@@ -66,8 +66,12 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* Center Icon */}
-          <Link href="/#" className="px-2">
+          {/* Center Icon - Changed to button for scroll-to-top functionality */}
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="px-2 cursor-pointer transition-transform hover:scale-105"
+            aria-label="Scroll to top"
+          >
             <Image
               src={brandAssets.icon}
               alt="Center Icon"
@@ -75,7 +79,7 @@ export default function Navbar() {
               height={36}
               className="h-9 w-9 object-contain"
             />
-          </Link>
+          </button>
 
           {/* Right half of nav links */}
           {rightNavItems.map((item) => (
