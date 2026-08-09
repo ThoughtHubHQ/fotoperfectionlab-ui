@@ -1,5 +1,5 @@
 export const contactInfo = {
-  phone: "+8801632223989",
+  phone: "+880 1632 223989",
   WhatsApp: "+8801632223989",
   fbMessenger:
     "https://m.me/fotoperfectionlab",

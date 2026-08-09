@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "@/lib/animation";
 import CraftingCredit from "./CraftingCredit";
 import { brandAssets, contactInfo, SocialMediaUrls } from "@/lib/asset";
+import { FaWhatsapp } from "react-icons/fa";
 
 const year = new Date().getFullYear();
 
@@ -23,6 +24,7 @@ const socialLinks = [
   { id: "twitter", icon: FiTwitter, url: SocialMediaUrls.x },
   { id: "instagram", icon: FiInstagram, url: SocialMediaUrls.instagram },
   { id: "email", icon: FiMail, url: `mailto:${contactInfo.emailAdmin}` },
+  { id: "whatsapp", icon: FaWhatsapp, url: `https://wa.me/${contactInfo.WhatsApp}` },
 ];
 
 const footerLinks = [
