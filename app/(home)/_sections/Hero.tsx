@@ -17,7 +17,7 @@ import Link from "next/link";
 const heroSlides = [
   {
     id: 1,
-    title: "JEWELLERY RETOUCH",
+    title: "JEWELERY RETOUCH",
     subtitle: "Color, Light, Exposure",
     icon: RiDiamondRingLine,
     photo: "/hero/Jewellery-Retouching.jpg",

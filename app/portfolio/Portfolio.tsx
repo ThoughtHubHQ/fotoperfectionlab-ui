@@ -200,8 +200,8 @@ export default function Portfolio() {
             Our Showcase <span className="text-[#2563EB]">Portfolio</span>
           </h2>
           <p className="text-[#6B7280] text-[14px] md:text-[15px] font-medium max-w-[500px] leading-relaxed">
-            A showcase of our work across every editing discipline before &
-            after, detail shots, and full compositions.
+            Explore our finest photo editing and retouching work, from precise
+            product edits to high-end creative transformations.
           </p>
         </motion.div>
 

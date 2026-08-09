@@ -2,8 +2,8 @@ export const contactInfo = {
   phone: "+1 718 577 1232",
   whatsApp: "+1 718 577 1232",
   fbMessenger: "https://m.me/fpl",
-  emailAdmin: "admin@fpl.com",
-  website: "https://fpl.com",
+  emailAdmin: "admin@fotoperfectionlab.com",
+  website: "https://fotoperfectionlab.com",
   location: "142-160 Meredith Ave, Nedrow,NY 13120, USA",
   googleMapUrl: "https://maps.app.goo.gl/7912bVHJDRApVvBe8",
 };

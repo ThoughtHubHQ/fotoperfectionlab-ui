@@ -30,7 +30,7 @@ const whatWeDoData = [
   { id: 5, label: "Shadow & Reflection\nCreation", icon: FiSun },
   { id: 6, label: "Ghost Mannequin Editing", icon: FiUser },
   { id: 7, label: "Object Removal & Image\nCleanup", icon: FiEdit3 },
-  { id: 8, label: "Jewellery Retouching", icon: FiHexagon },
+  { id: 8, label: "Jewelery Retouching", icon: FiHexagon },
   { id: 9, label: "Fashion & Beauty\nRetouching", icon: FiStar },
 ];
 

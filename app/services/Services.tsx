@@ -95,7 +95,7 @@ const servicesData = [
   },
   {
     id: 6,
-    title: "Jewellery Retouching",
+    title: "Jewelery Retouching",
     description:
       "Specialized retouching for fine jewelry. We enhance gem sparkle, correct metal colors, remove macro-lens dust, and add distinct shines to make pieces look luxurious.",
     features: [
@@ -249,8 +249,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
+    beforeImage: "/services/beauty-retouching/Beuty-Retouch-Before.jpg",
+    afterImage: "/services/beauty-retouching/Beuty-Retouch-After.jpg",
     link: "/services/beauty-retouching",
   },
   {
@@ -281,8 +281,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
+    beforeImage: "/services/ai-photo-editing/AI-Photo-Edit-Before.jpg",
+    afterImage: "/services/ai-photo-editing/AI-Photo-Edit-After.jpg",
     link: "/services/ai-photo-editing",
   },
   {
@@ -297,8 +297,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
+    beforeImage: "/services/photo-restoration/Restoration-Before.jpg",
+    afterImage: "/services/photo-restoration/Restoration-After.jpg",
     link: "/services/photo-restoration",
   },
   {
@@ -313,8 +313,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
+    beforeImage: "/services/photo-manipulation/Photo-Manipulation-Before.jpg",
+    afterImage: "/services/photo-manipulation/Photo-Manipulation-After.jpg",
     link: "/services/photo-manipulation",
   },
   {
@@ -329,8 +329,8 @@ const servicesData = [
       "Fast delivery within 24 hours",
       "24/7 customer support",
     ],
-    beforeImage: "/services/shoe-before.jpg",
-    afterImage: "/services/shoe-after.jpg",
+    beforeImage: "/services/photo-colorization/Photo-Colorization-Before.jpg",
+    afterImage: "/services/photo-colorization/Photo-Colorization-After.jpg",
     link: "/services/photo-colorization",
   },
 ];
