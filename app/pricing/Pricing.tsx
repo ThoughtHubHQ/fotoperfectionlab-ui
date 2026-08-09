@@ -50,22 +50,22 @@ const pricingFeatures = [
   },
   {
     name: "Photo Retouching",
-    pricesUsd: { basic: "$1.00", standard: "$1.50", premium: "$2.00" },
+    pricesUsd: { basic: "$1.00", standard: "$2.00", premium: "$4.00" },
     pricesEur: { basic: "€0.95", standard: "€1.40", premium: "€1.90" },
   },
   {
     name: "Jewelery Retouching",
-    pricesUsd: { basic: "$1.50", standard: "$2.50", premium: "$4.00" },
+    pricesUsd: { basic: "$2.00", standard: "$3.00", premium: "$5.00" },
     pricesEur: { basic: "€1.40", standard: "€2.35", premium: "€3.75" },
   },
   {
     name: "Ghost Mannequin",
-    pricesUsd: { basic: "$0.80", standard: "$1.29", premium: "$2.00" },
+    pricesUsd: { basic: "$1.00", standard: "$1.50", premium: "$2.00" },
     pricesEur: { basic: "€0.75", standard: "€1.20", premium: "€1.90" },
   },
   {
     name: "Apparel Editing",
-    pricesUsd: { basic: "$0.70", standard: "$1.10", premium: "$1.80" },
+    pricesUsd: { basic: "$1.00", standard: "$2.00", premium: "$2.50" },
     pricesEur: { basic: "€0.65", standard: "€1.05", premium: "€1.70" },
   },
   {
@@ -80,7 +80,7 @@ const pricingFeatures = [
   },
   {
     name: "Real Estate Photo Editing",
-    pricesUsd: { basic: "$1.20", standard: "$2.00", premium: "$3.50" },
+    pricesUsd: { basic: "$2.00", standard: "$3.00", premium: "$5.00" },
     pricesEur: { basic: "€1.10", standard: "€1.90", premium: "€3.30" },
   },
   {
@@ -105,12 +105,12 @@ const pricingFeatures = [
   },
   {
     name: "Model Retouching",
-    pricesUsd: { basic: "$2.50", standard: "$4.00", premium: "$7.00" },
+    pricesUsd: { basic: "$1.00", standard: "$1.50", premium: "$3.00" },
     pricesEur: { basic: "€2.35", standard: "€3.80", premium: "€6.65" },
   },
   {
     name: "AI Photo Editing",
-    pricesUsd: { basic: "$0.50", standard: "$1.00", premium: "$2.00" },
+    pricesUsd: { basic: "$1.00", standard: "$1.50", premium: "$3.00" },
     pricesEur: { basic: "€0.45", standard: "€0.95", premium: "€1.90" },
   },
   {
@@ -120,7 +120,7 @@ const pricingFeatures = [
   },
   {
     name: "Photo Manipulation",
-    pricesUsd: { basic: "$4.00", standard: "$8.00", premium: "$15.00" },
+    pricesUsd: { basic: "$2.00", standard: "$5.00", premium: "$7.00" },
     pricesEur: { basic: "€3.80", standard: "€7.60", premium: "€14.25" },
   },
   {

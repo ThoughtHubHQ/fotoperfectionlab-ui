@@ -62,6 +62,10 @@ export const portfolioData = [
       "/portfolio/jewellery-retouching/E-commerce Jewelry Photo Editing (2).jpg",
       "/portfolio/jewellery-retouching/E-commerce Jewelry Photo Editing (3).jpg",
       "/portfolio/jewellery-retouching/E-commerce Jewelry Photo Editing (4).jpg",
+      "/portfolio/jewellery-retouching/E-commerce Jewelry Photo Editing (5).jpg",
+      "/portfolio/jewellery-retouching/E-commerce Jewelry Photo Editing (6).jpg",
+      "/portfolio/jewellery-retouching/E-commerce Jewelry Photo Editing (7).jpg",
+      "/portfolio/jewellery-retouching/E-commerce Jewelry Photo Editing (8).jpg",
     ],
   },
   {
