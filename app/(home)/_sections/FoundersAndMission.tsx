@@ -23,8 +23,8 @@ const foundersData = [
     image: "/founders/founder1.jpg",
     socials: {
       behance: "https://behance.net/mdsayeed459f62",
-      linkedin: "https://linkedin.com",
-      email: "mailto:sayeed@example.com",
+      linkedin: "https://www.linkedin.com/in/md-sayed4560/",
+      email: "mailto:m.sayeedinfo@gmail.com",
     },
   },
   {
