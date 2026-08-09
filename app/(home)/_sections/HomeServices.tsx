@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiCheck, FiArrowRight } from "react-icons/fi";
 import { servicesData } from "@/lib/servicesData";
+import { BsArrowRight } from "react-icons/bs";
 
 // Mock Data
 const sectionHeader = {
@@ -14,7 +15,6 @@ const sectionHeader = {
   description:
     "Replicating the exact visual composition of image_d8e2aa.png. Custom before/after hover-capable modules built to showcase absolute precision.",
 };
-
 
 const BeforeAfterImage = ({
   beforeImg,
@@ -161,6 +161,12 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
             </li>
           ))}
         </ul>
+        <Link
+          href="/contact"
+          className="bg-[#2563EB] text-white py-3 px-6 rounded-lg font-bold hover:bg-[#1d4ed8] flex items-center gap-2 text-[14px] md:text-[15px] hover:shadow-2xl hover:scale-[1.05] active:scale-[0.95] transition-all duration-300 w-full md:w-auto md:self-end justify-center text-center"
+        >
+          Get a Free Trial <BsArrowRight />
+        </Link>
       </div>
     </div>
   );

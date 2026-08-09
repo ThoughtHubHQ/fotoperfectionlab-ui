@@ -27,9 +27,7 @@ const contactInfoData = [
 ];
 
 const businessHoursData = [
-  { id: 1, day: "Mon - Fri", time: "9:00 AM - 6:00 PM" },
-  { id: 2, day: "Saturday", time: "10:00 AM - 4:00 PM" },
-  { id: 3, day: "Sunday", time: "Closed" },
+  { id: 1, day: "24/7 Customer Support", time: "" },
 ];
 
 export default function ContactSection() {

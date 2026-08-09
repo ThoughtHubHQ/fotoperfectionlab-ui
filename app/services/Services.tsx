@@ -113,9 +113,6 @@ const BeforeAfterImage = ({
 
 const ServiceCard = ({ service, index }: { service: any; index: number }) => {
   const isEven = index % 2 === 0;
-
-  // Removed sliderPos state and mouse handlers from the main card container
-
   return (
     <motion.div
       id={`service-${service.id}`}
@@ -228,7 +225,7 @@ export default function Services() {
 
       {/* Navigation Tabs (Table Style) */}
       <section className="w-full mb-16">
-        <div className="max-w-[1440px] mx-auto px-4 md:px-8 xl:px-10 2xl:px-0">
+        <div className="max-w-360 mx-auto px-4 md:px-8 xl:px-10 2xl:px-0">
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -256,7 +253,7 @@ export default function Services() {
 
       {/* Services List Section */}
       <section className="w-full pb-16 lg:pb-24">
-        <div className="max-w-[1440px] mx-auto px-4 md:px-8 xl:px-10 2xl:px-0 flex flex-col gap-12 md:gap-16">
+        <div className="max-w-360 mx-auto px-4 md:px-8 xl:px-10 2xl:px-0 flex flex-col gap-12 md:gap-16">
           {servicesData.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
