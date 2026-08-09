@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiCheck, FiArrowRight } from "react-icons/fi";
+import { servicesData } from "@/lib/servicesData";
 
 // Mock Data
 const sectionHeader = {
@@ -14,88 +15,6 @@ const sectionHeader = {
     "Replicating the exact visual composition of image_d8e2aa.png. Custom before/after hover-capable modules built to showcase absolute precision.",
 };
 
-const servicesData = [
-  {
-    id: 1,
-    title: "Clipping Path",
-    description:
-      "Clipping path service allows removing the unwanted objects background from photos. You can also do color separation using clipping path. We provide a manual clipping path service using adobe photoshop. Pricing may vary depending on image complexity but is very competitive.",
-    features: [
-      "Hand-made clipping path vectors",
-      "Pricing depends on image complexity",
-      "Up to 50% discount on bulk order",
-      "Fast delivery within 24 hours",
-      "24/7 customer support",
-    ],
-    beforeImage: "/services/clipping-path/CP-Before.jpg",
-    afterImage: "/services/clipping-path/CP-After.jpg",
-    link: "/services/clipping-path",
-  },
-  {
-    id: 2,
-    title: "Background Removal",
-    description:
-      "Instantly upgrade your product presentation by replacing distracting backgrounds with pure white or transparent backdrops, perfectly optimized for Amazon, Shopify, and eBay.",
-    features: [
-      "Pure white or transparent BG",
-      "Amazon & Shopify compliant",
-      "Smooth edge refinement",
-      "Fast delivery within 24 hours",
-      "24/7 customer support",
-    ],
-    beforeImage: "/services/bg-removal/BG-Removal-Before.jpg",
-    afterImage: "/services/bg-removal/BG-Removal-After.jpg",
-    link: "/services/background-removal",
-  },
-  {
-    id: 3,
-    title: "Shadow Creation",
-    description:
-      "Add depth and realism to flat product images with custom drop shadows, natural shadows, or reflections. Creates a 3D effect that increases perceived product value.",
-    features: [
-      "Drop, natural, & reflection shadows",
-      "Realistic 3D depth addition",
-      "Consistent lighting angles",
-      "Fast delivery within 24 hours",
-      "24/7 customer support",
-    ],
-    beforeImage: "/services/shadow-creation/Shadow-Before.jpg",
-    afterImage: "/services/shadow-creation/Shadow-After.jpg",
-    link: "/services/shadow-creation",
-  },
-  {
-    id: 4,
-    title: "Image Masking",
-    description:
-      "Advanced image masking for complex subjects like hair, fur, or translucent objects where standard clipping paths fall short. Ensures natural, soft edges on any background.",
-    features: [
-      "Alpha channel masking",
-      "Hair and fur detailing",
-      "Translucent object masking",
-      "Fast delivery within 24 hours",
-      "24/7 customer support",
-    ],
-    beforeImage: "/services/image-masking/Masking-Before.jpg",
-    afterImage: "/services/image-masking/Masking-After.jpg",
-    link: "/services/image-masking",
-  },
-  {
-    id: 5,
-    title: "Photo Retouching",
-    description:
-      "High-end retouching to clean up dust, scratches, glares, and imperfections. Enhances the overall aesthetic while maintaining natural textures and materials.",
-    features: [
-      "Dust and scratch removal",
-      "Texture preservation",
-      "Highlight and glare adjustment",
-      "Fast delivery within 24 hours",
-      "24/7 customer support",
-    ],
-    beforeImage: "/services/photo-retouching/Photo-Retouching-Before.jpg",
-    afterImage: "/services/photo-retouching/Photo-Retouching-After.jpg",
-    link: "/services/photo-retouching",
-  },
-];
 
 const BeforeAfterImage = ({
   beforeImg,
@@ -248,7 +167,7 @@ const ServiceCard = ({ service, index }: { service: any; index: number }) => {
 };
 
 export default function HomeServices() {
-  const displayServices = servicesData.slice(0, 4);
+  const displayServices = servicesData.filter((service) => service.showHome);
 
   return (
     <section className="w-full py-16 lg:py-24 bg-transparent">

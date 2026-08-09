@@ -141,10 +141,10 @@ export default function Pricing() {
           <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[rgba(37,99,235,0.15)] bg-[rgba(37,99,235,0.05)] text-[#2563EB] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-6">
             OUR PRICING
           </div>
-          <h2 className="text-[#111827] text-[32px] md:text-[40px] font-[800] tracking-tight mb-4">
+          <h2 className="text-[#111827] text-[32px] md:text-[40px] font-extrabold tracking-tight mb-4">
             Simple Transparent <span className="text-[#2563EB]">Pricing</span>
           </h2>
-          <p className="text-[#6B7280] text-[14px] md:text-[15px] font-medium max-w-[600px] leading-relaxed">
+          <p className="text-[#6B7280] text-[14px] md:text-[15px] font-medium max-w-150 leading-relaxed">
             Replicating the official service rate comparison framework. Clear,
             scalable tiers designed for large production schedules.
           </p>
