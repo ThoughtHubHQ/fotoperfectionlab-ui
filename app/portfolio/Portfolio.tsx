@@ -60,7 +60,7 @@ const portfolioData = [
   },
   {
     id: "jewellery-retouching",
-    prefix: "Jewellery",
+    prefix: "Jewelery",
     highlight: "Retouching",
     aspect: "aspect-[3/2.5]",
     images: [
@@ -126,20 +126,6 @@ const portfolioData = [
       "/portfolio/food-retouching/Food Product Retouching Service (4).jpg",
     ],
   },
-
-  // Group 2: 3000x2500 (6:5 Aspect Ratio)
-  {
-    id: "headshot-portrait",
-    prefix: "Headshot & Portrait",
-    highlight: "Retouching",
-    aspect: "aspect-[2/3]",
-    images: [
-      "/portfolio/headshot-retouching/Corporate Headshot Editing Portrait Retouching (1).jpg",
-      "/portfolio/headshot-retouching/Corporate Headshot Editing Portrait Retouching (2).jpg",
-      "/portfolio/headshot-retouching/Corporate Headshot Editing Portrait Retouching (3).jpg",
-      "/portfolio/headshot-retouching/Corporate Headshot Editing Portrait Retouching (4).jpg",
-    ],
-  },
   {
     id: "baby-photo",
     prefix: "Baby Photo",
@@ -150,6 +136,30 @@ const portfolioData = [
       "/portfolio/baby-retouching/Baby Photo Retouching Service, Newborn Photo Editing (2).jpg",
       "/portfolio/baby-retouching/Baby Photo Retouching Service, Newborn Photo Editing (3).jpg",
       "/portfolio/baby-retouching/Baby Photo Retouching Service, Newborn Photo Editing (4).jpg",
+    ],
+  },
+  {
+    id: "beauty-retouching",
+    prefix: "Beauty",
+    highlight: "Retouching",
+    aspect: "aspect-[2/2.5]",
+    images: [
+      "/portfolio/beauty-retouching/Beuty-Retouch-1.jpg",
+      "/portfolio/beauty-retouching/Beuty-Retouch-2.jpg",
+      "/portfolio/beauty-retouching/Beuty-Retouch-3.jpg",
+      "/portfolio/beauty-retouching/Beuty-Retouch-4.jpg",
+    ],
+  },
+  {
+    id: "headshot-portrait",
+    prefix: "Headshot & Portrait",
+    highlight: "Retouching",
+    aspect: "aspect-[2/3]",
+    images: [
+      "/portfolio/headshot-retouching/Corporate Headshot Editing Portrait Retouching (1).jpg",
+      "/portfolio/headshot-retouching/Corporate Headshot Editing Portrait Retouching (2).jpg",
+      "/portfolio/headshot-retouching/Corporate Headshot Editing Portrait Retouching (3).jpg",
+      "/portfolio/headshot-retouching/Corporate Headshot Editing Portrait Retouching (4).jpg",
     ],
   },
   {
