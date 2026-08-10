@@ -2,7 +2,7 @@ import Script from "next/script";
 
 export const GTM_ID = "GTM-"; 
 export const CLARITY_ID = "";
-export const TAWKTO_ID = "";
+export const TAWKTO_ID = "6a6d959d055f021d4ace1492/1jvkrvqav";
 
 export default function AppAnalytics() {
   return (
