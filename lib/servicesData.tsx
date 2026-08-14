@@ -86,7 +86,7 @@ export const servicesData = [
   },
   {
     id: 6,
-    title: "Jewelery Retouching",
+    title: "Jewelry Retouching",
     description:
       "Specialized retouching for fine jewelry. We enhance gem sparkle, correct metal colors, remove macro-lens dust, and add distinct shines to make pieces look luxurious.",
     features: [

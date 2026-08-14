@@ -100,7 +100,7 @@ export default function AboutCard() {
                   Trusted by
                 </span>
                 <span className="text-[#2563EB] text-[14px] font-bold leading-tight">
-                  Global Clients
+                 100+ Global Clients
                 </span>
               </div>
             </div>

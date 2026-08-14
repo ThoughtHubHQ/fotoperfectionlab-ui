@@ -17,7 +17,7 @@ import Link from "next/link";
 const heroSlides = [
   {
     id: 1,
-    title: "JEWELERY RETOUCH",
+    title: "JEWELRY RETOUCH",
     subtitle: "Color, Light, Exposure",
     icon: RiDiamondRingLine,
     photo: "/hero/Jewellery-Retouching.jpg",
@@ -142,7 +142,7 @@ export default function Hero() {
                 </span>
               </div>
               <span className="text-[#6B7280] text-xs md:text-sm font-medium">
-                Trusted by 5K+ Global Clients
+                Trusted by 100+ Global Clients
               </span>
             </div>
           </div>

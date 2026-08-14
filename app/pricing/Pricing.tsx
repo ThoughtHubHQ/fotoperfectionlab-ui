@@ -54,7 +54,7 @@ const pricingFeatures = [
     pricesEur: { basic: "€0.95", standard: "€1.40", premium: "€1.90" },
   },
   {
-    name: "Jewelery Retouching",
+    name: "Jewelry Retouching",
     pricesUsd: { basic: "$2.00", standard: "$3.00", premium: "$5.00" },
     pricesEur: { basic: "€1.40", standard: "€2.35", premium: "€3.75" },
   },

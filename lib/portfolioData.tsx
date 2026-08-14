@@ -54,7 +54,7 @@ export const portfolioData = [
   },
   {
     id: "jewellery-retouching",
-    prefix: "Jewelery",
+    prefix: "Jewelry",
     highlight: "Retouching",
     aspect: "aspect-[3/2.5]",
     images: [

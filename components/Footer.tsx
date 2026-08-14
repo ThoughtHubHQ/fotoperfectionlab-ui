@@ -35,7 +35,7 @@ const footerLinks = [
       { label: "Shadow Creation", url: "/services/shadow-creation" },
       { label: "Image Masking", url: "/services/image-masking" },
       { label: "Photo Retouching", url: "/services/photo-retouching" },
-      { label: "Jewelery Retouching", url: "/services/jewellery-retouching" },
+      { label: "Jewelry Retouching", url: "/services/jewellery-retouching" },
       { label: "Ghost Mannequin", url: "/services/ghost-mannequin" },
     ],
   },

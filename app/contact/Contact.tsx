@@ -2,6 +2,7 @@
 
 import { contactInfo } from "@/lib/asset";
 import React, { useState, useRef } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import { FiClock, FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi";
 import { ImSpinner3 } from "react-icons/im";
 
@@ -17,6 +18,12 @@ const contactInfoData = [
     title: "Phone",
     detail: contactInfo.phone,
     icon: FiPhone,
+  },
+  {
+    id: "whatsapp",
+    title: "WhatsApp",
+    detail: contactInfo.WhatsApp,
+    icon: FaWhatsapp,
   },
   {
     id: "address",
@@ -112,27 +119,29 @@ export default function ContactSection() {
             Response within 24 hours
           </div>
 
-          <h2 className="text-[#111827] text-[36px] md:text-[44px] font-[800] tracking-tight mb-4">
+          <h2 className="text-[#111827] text-[36px] md:text-[44px] font-extrabold tracking-tight mb-4">
             Get in <span className="text-[#2563EB]">Touch</span>
           </h2>
-          <p className="text-[#6B7280] text-[15px] font-medium max-w-[460px] leading-relaxed">
+          <p className="text-[#6B7280] text-[15px] font-medium max-w-115 leading-relaxed">
             Ready to elevate your images? Send us a message and our team will
             get back to you promptly.
           </p>
         </div>
 
         <div className="w-full flex flex-col lg:flex-row gap-6 md:gap-8 justify-center">
+
           {/* --- LEFT COLUMN: CONTACT INFO --- */}
-          <div className="w-full lg:w-[380px] flex flex-col gap-4">
+
+          <div className="w-full lg:w-95 flex flex-col gap-4">
             {/* Dynamic Contact Cards */}
             {contactInfoData.map((card) => {
               const Icon = card.icon;
               return (
                 <div
                   key={card.id}
-                  className="flex items-center gap-4 p-5 rounded-[16px] border border-[rgba(37,99,235,0.15)] bg-[rgba(37,99,235,0.05)] shadow-[0_6px_10px_0_rgba(37,99,235,0.10)]"
+                  className="flex items-center gap-4 p-5 rounded-2xl border border-[rgba(37,99,235,0.15)] bg-[rgba(37,99,235,0.05)] shadow-[0_6px_10px_0_rgba(37,99,235,0.10)]"
                 >
-                  <div className="shrink-0 w-12 h-12 rounded-[12px] bg-[#EFF6FF] flex items-center justify-center text-[#2563EB]">
+                  <div className="shrink-0 w-12 h-12 rounded-xl bg-[#EFF6FF] flex items-center justify-center text-[#2563EB]">
                     <Icon className="w-5 h-5" strokeWidth={2.5} />
                   </div>
                   <div className="flex flex-col">
@@ -177,7 +186,7 @@ export default function ContactSection() {
           </div>
 
           {/* --- RIGHT COLUMN: CONTACT FORM --- */}
-          <div className="w-full lg:flex-1 p-6 sm:p-8 md:p-10 rounded-[32px] border border-[rgba(37,99,235,0.15)] bg-[rgba(37,99,235,0.05)] shadow-[0_6px_10px_0_rgba(37,99,235,0.10)]">
+          <div className="w-full lg:flex-1 p-6 sm:p-8 md:p-10 rounded-4xl border border-[rgba(37,99,235,0.15)] bg-[rgba(37,99,235,0.05)] shadow-[0_6px_10px_0_rgba(37,99,235,0.10)]">
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               {/* Full Name */}
               <div className="flex flex-col gap-2">
@@ -255,7 +264,7 @@ export default function ContactSection() {
                   placeholder="Tell us about your project..."
                   required
                   rows={4}
-                  className="w-full px-4 py-3.5 text-[14.5px] text-[#111827] placeholder:text-[#9CA3AF] rounded-[12px] border border-[#E2E8F0] bg-[rgba(248,250,252,0.50)] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 focus:border-[#2563EB] transition-all resize-y min-h-[120px]"
+                  className="w-full px-4 py-3.5 text-[14.5px] text-[#111827] placeholder:text-[#9CA3AF] rounded-[12px] border border-[#E2E8F0] bg-[rgba(248,250,252,0.50)] focus:outline-none focus:ring-2 focus:ring-[#2563EB]/40 focus:border-[#2563EB] transition-all resize-y min-h-30"
                 />
               </div>
 

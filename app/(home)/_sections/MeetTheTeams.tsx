@@ -49,9 +49,9 @@ const teamData = [
   {
     id: 4,
     name: "Aisha Nwosu",
-    role: "Jewelery & Luxury Retoucher",
+    role: "Jewelry & Luxury Retoucher",
     description:
-      "Transforms fine jewelery and luxury product shots into magazine-ready hero images.",
+      "Transforms fine jewelry and luxury product shots into magazine-ready hero images.",
     image: "/teams/member4.jpg",
     socials: {
       linkedin: "https://linkedin.com",

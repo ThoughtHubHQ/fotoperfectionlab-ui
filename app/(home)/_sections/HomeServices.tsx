@@ -13,7 +13,7 @@ const sectionHeader = {
   title: "Premium Image",
   titleHighlight: "Editing Services",
   description:
-    "Replicating the exact visual composition of image_d8e2aa.png. Custom before/after hover-capable modules built to showcase absolute precision.",
+    "We offer a wide range of professional image editing services to enhance your photos and bring your creative vision to life.",
 };
 
 const BeforeAfterImage = ({
@@ -122,8 +122,6 @@ const BeforeAfterImage = ({
 const ServiceCard = ({ service, index }: { service: any; index: number }) => {
   const isEven = index % 2 === 0;
 
-  // Removed state and mouse events from the main card container
-
   return (
     <div
       className={`w-full flex flex-col ${
@@ -189,7 +187,7 @@ export default function HomeServices() {
               {sectionHeader.titleHighlight}
             </span>
           </h2>
-          <p className="text-[#6B7280] text-[14px] md:text-[15px] font-medium max-w-[650px] leading-relaxed">
+          <p className="text-[#6B7280] text-[14px] md:text-[15px] font-medium max-w-130 leading-relaxed">
             {sectionHeader.description}
           </p>
         </div>
