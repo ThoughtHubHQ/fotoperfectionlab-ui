@@ -66,7 +66,7 @@ const privacyData = [
     id: 6,
     title: "6. Contact Us",
     content:
-      "If you have questions or comments about this notice, you may email our Data Protection Officer at privacy@example.com or by post to our registered company address.",
+      "If you have questions or comments about this notice, you may email us on admin@fotoperfectionlab.com or by post to our registered company address.",
   },
 ];
 
