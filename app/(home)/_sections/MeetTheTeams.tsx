@@ -219,7 +219,7 @@ export default function MeetTheTeam() {
               {teamData.map((member, index) => (
                 <div
                   key={`${member.id}-${setIndex}-${index}`}
-                  className="shrink-0 w-65 sm:w-70 md:w-[320px] flex flex-col text-left rounded-[20px] md:rounded-[28px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.08)] shadow-[0_0_10px_0_rgba(37,99,235,0.15),0_4px_20px_0_rgba(37,99,235,0.06),0_1px_4px_0_rgba(0,0,0,0.03)] overflow-hidden transition-transform duration-300 hover:-translate-y-1"
+                  className="shrink-0 w-65 sm:w-70 md:w-[320px] flex flex-col text-center rounded-[20px] md:rounded-[28px] border border-[rgba(37,99,235,0.20)] bg-[rgba(37,99,235,0.08)] shadow-[0_0_10px_0_rgba(37,99,235,0.15),0_4px_20px_0_rgba(37,99,235,0.06),0_1px_4px_0_rgba(0,0,0,0.03)] overflow-hidden transition-transform duration-300 hover:-translate-y-1"
                 >
                   <div className="w-full aspect-4/3.5 relative bg-[#E1EBFF]">
                     <Image
@@ -243,7 +243,7 @@ export default function MeetTheTeam() {
                       {member.description}
                     </p>
 
-                    <div className="flex items-center gap-2 md:gap-3 mt-auto">
+                    <div className="flex justify-center items-center gap-2 md:gap-3 mt-auto">
                       <Link
                         href={member.socials.linkedin}
                         target="_blank"
