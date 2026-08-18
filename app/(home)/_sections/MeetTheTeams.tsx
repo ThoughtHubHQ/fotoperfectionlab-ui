@@ -232,7 +232,7 @@ export default function MeetTheTeam() {
                   </div>
 
                   <div className="flex flex-col grow p-4 md:p-6">
-                    <h3 className="text-[#111827] text-[15px] md:text-[18px] font-bold tracking-tight mb-1">
+                    <h3 className="text-[#111827] text-[15px] md:text-[19px] font-bold tracking-tight mb-1">
                       {member.name}
                     </h3>
                     <h4 className="text-[#2563EB] text-[11px] md:text-[13px] font-semibold mb-3 md:mb-4 tracking-wide leading-tight">
