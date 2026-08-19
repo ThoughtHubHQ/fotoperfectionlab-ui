@@ -74,15 +74,15 @@ const teamData = [
   },
   {
     id: 6,
-    name: "Kawar Ali",
+    name: "Kawasr Ali",
     role: "Photo Retoucher",
     description:
       "Expert in photo retouching, enhancing images to meet client specifications and industry standards.",
-    image: "/teams/kawarali.jpg",
+    image: "/teams/kawasrali.jpg",
     socials: {
       linkedin: "https://linkedin.com/",
       twitter: "https://twitter.com/",
-      email: "mailto:kawar@fotoperfectionlab.com",
+      email: "mailto:kawasr@fotoperfectionlab.com",
     },
   },
 ];
