@@ -86,7 +86,7 @@ export default function Hero() {
 
           <h1 className="mb-6 text-[#111827] font-extrabold text-[36px] xl:leading-16 lg:text-[35px] xl:text-[45px]">
             Perfect Image <br />
-            Powerful Editing <br />
+            Professional Editing <br />
             With{" "}
             <span className="relative inline-block whitespace-nowrap text-[#1D61F2] min-w-60 sm:min-w-75 md:min-w-100">
               <AnimatePresence mode="wait">
