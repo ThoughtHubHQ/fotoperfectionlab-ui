@@ -56,7 +56,7 @@ const BeforeAfterImage = ({
       onTouchMove={handleTouch}
       onTouchEnd={handleReset}
       onMouseMove={handleMouseMove}
-      onMouseLeave={handleReset}
+      // onMouseLeave={handleReset}
       className="relative w-full aspect-4/3 rounded-[20px] overflow-hidden select-none bg-[#DCE7FF] touch-pan-y"
     >
       {/* After Image (Background layer) */}
